@@ -1,0 +1,1245 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* Estilo para el botón del desplegable */
+.dropbtn {
+    background-color: #f1f1f1;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 6px 10px;
+    margin-right: 5px;
+    border-radius: 20px;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+/* Contenedor del desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Contenido del desplegable */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    border-radius: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Botones dentro del contenido del desplegable */
+.dropdown-content button {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Cambiar color de los botones al pasar el ratón */
+.dropdown-content button:hover {
+    background-color: #ccc;
+}
+
+/* Mostrar contenido del desplegable cuando se hace clic */
+.show {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .search-container input[type=text] {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+   .search-container input[type="text"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s ease;
+  }
+  .search-container input[type="text"]:hover {
+    border-color: #41fd29;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s ease;
+  }
+  .search-container button {
+          background-color: #4CAF50;
+          border: none;
+          color: white;
+          padding: 6px 10px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 20px;
+          cursor: pointer;
+          border-radius: 20px;
+          transition: background-color 0.3s ease;
+      }
+      .search-container button:hover {
+          background-color: #41fd29;
+      }
+      .search-container button  i {
+          margin-right: 5px;
+      }
+      
+
+  .search-engines {
+    display: flex;
+    margin-left: 20px;
+  }
+
+  .search-engines button {
+    background-color: #f1f1f1;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 6px 10px;
+    margin-right: 5px;
+    border-radius: 20px;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+  }
+  .search-engines button:hover {
+          background-color: #41fd29;
+      }
+
+  .search-engines button.active {
+    background-color: #4CAF50;
+    color: white;
+
+  }
+  .search-engines button:hover.active{
+    background-color: #41fd29;
+    color: white;
+
+  }
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+  }
+header :hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d7d7d7;
+    padding: 10px;
+    transition: background-color 1s ease;
+    border-radius: 20px;
+  }
+nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 10px;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  }
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e7ffde;
+  padding: 0.5px;
+  margin-top: 60px;
+  }
+aside{
+display: flex;
+justify-content: right;
+align-items: right;
+background-color: #ffff;
+padding: 10px;
+}
+
+
+footer{
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #efefef;
+padding: 10px;
+border-radius: 0px;
+width: 1350px;
+height: 5px;
+}
+.top-button {
+  display: flex;
+  margin-left: 20px;
+}
+
+.top-button {
+  background-color: #f1f1f1;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  margin-right: 5px;
+  border-radius: 20px;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+.top-button:hover {
+        background-color: #41fd29;
+    }
+iframe {
+  border: none;
+  transition: filter 0.3s ease;
+  filter: grayscale(100%);
+}
+iframe:hover {
+  filter: grayscale(0%);
+}
+
+.boton {
+  background-color: #ccc;
+  border: none;
+  color: rgb(8, 8, 8);
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  display: inline-block;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #41fd29;
+  font-family: "Montserrat", sans-serif;
+}
+
+p{
+  font-family: "Montserrat", sans-serif;
+}
+h2{
+  font-family: "Montserrat", sans-serif;
+}
+
+h4{
+  font-family: "Montserrat", sans-serif;
+}
+
+li{
+  font-family: "Montserrat", sans-serif;
+}
+
+h3{
+  font-family: "Montserrat", sans-serif;
+}
+
+
+
+a {
+  color: #00fd088f;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: blue;
+}
+a:active {
+  color: #41fd29;
+}
+
+h1{
+  font-family:"Montserrat Alternates", sans-serif;
+  color: #00fd088f
+}
+
+  /* Estilo para el botón del desplegable */
+
+#myButton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+#myButton:hover {
+  background-color: #41fd29;
+}
+
+
+
+#planes {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+#planes:hover {
+  background-color: #41fd29;
+}
+
+#myStart :hover{
+  color: #41fd29;
+}
+.load-memory-saturation{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+.load-memory-saturation:hover {
+  background-color: #41fd29;
+}
+#helpButton {
+  background-color: #080cf7;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  border-radius: 5px;
+}
+
+#helpContainer {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+#helpHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #080cf7;
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#helpSearch {
+  width: calc(100% - 30px);
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+#closeHelp {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#helpSuggestions {
+  padding: 15px;
+  font-size: 14px;
+}
+
+#helpSuggestions p {
+  margin: 0;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#helpSuggestions ol {
+  padding-left: 20px;
+  margin: 0;
+}
+
+#helpSuggestions li {
+  margin-bottom: 10px;
+}
+
+#helpSuggestions a {
+  text-decoration: none;
+  color: black;
+}
+
+#helpSuggestions a:hover {
+  text-decoration: underline;
+}
+
+#openChat {
+  background-color: #080cf7;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+ .input:focus:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.3s ease;
+}
+.input:hover {
+  border-color: #41fd29;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.3s ease;
+}
+.basic-button{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+.basic-button:hover {
+  background-color: #41fd29;
+}
+.basic-button-red{
+  background-color: #af4c4c;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+.basic-button-red:hover {
+  background-color: #ff0000;
+}
+.contenedor {
+  text-align: center;
+}
+
+.imagen {
+  display: inline-block;
+}
+.share-container {
+  position: relative;
+  display: inline-block;
+}
+
+#share-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+#share-button :hover {
+  background-color: #0fed17;
+  color: rgb(0, 0, 0);
+}
+
+.share-options {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 20px;
+}
+
+.share-options a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.share-options a:hover {
+  background-color: #52f905;
+  border-radius: 20px;
+  color: black;
+}
+
+:root {
+  /* Variables de color para el modo claro */
+  --primary-color-light: #4CAF50;
+  --secondary-color-light: #41fd29;
+  --background-color-light: #f3f3f3;
+  --text-color-light: #333;
+  --button-background-light: #f1f1f1;
+  --dropdown-background-light: #f9f9f9;
+  --link-color-light: #00fd088f;
+
+  /* Variables de color para el modo oscuro */
+  --primary-color-dark: #000000;
+  --secondary-color-dark: #00ff08;
+  --background-color-dark: #121212;
+  --text-color-dark: #ffffff;
+  --button-background-dark: #000000;
+  --dropdown-background-dark: #000000;
+  --link-color-dark: #003cff;
+
+  --border-radius: 20px;
+}
+
+/* Configuración por defecto en modo claro */
+body {
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+/* Botones */
+.dropbtn, .search-container button, #myButton, #planes, .load-memory-saturation, .basic-button, .top-button, .search-engines button {
+  background-color: var(--primary-color-light);
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
+}
+
+/* Modo oscuro para botones */
+.dark-mode .dropbtn, .dark-mode .search-container button, .dark-mode #myButton, .dark-mode #planes, .dark-mode .load-memory-saturation, .dark-mode .basic-button, .dark-mode .top-button, .dark-mode .search-engines button {
+  background-color: var(--primary-color-dark);
+}
+
+/* Hover de botones */
+.dropbtn:hover, .search-container button:hover, #myButton:hover, #planes:hover, .load-memory-saturation:hover, .basic-button:hover, .top-button:hover, .search-engines button:hover {
+  background-color: var(--secondary-color-light);
+}
+
+/* Hover en modo oscuro */
+.dark-mode .dropbtn:hover, .dark-mode .search-container button:hover, .dark-mode #myButton:hover, .dark-mode #planes:hover, .dark-mode .load-memory-saturation:hover, .dark-mode .basic-button:hover, .dark-mode .top-button:hover, .dark-mode .search-engines button:hover {
+  background-color: var(--secondary-color-dark);
+}
+
+/* Contenedor del desplegable */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--dropdown-background-light);
+  min-width: 160px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Modo oscuro para el desplegable */
+.dark-mode .dropdown-content {
+  background-color: var(--dropdown-background-dark);
+}
+
+/* Color del texto de los botones en el desplegable */
+.dropdown-content button {
+  color: var(--text-color-light);
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Modo oscuro para botones en el desplegable */
+.dark-mode .dropdown-content button {
+  color: var(--text-color-dark);
+}
+
+/* Color de los enlaces */
+a {
+  color: var(--link-color-light);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+/* Modo oscuro para enlaces */
+.dark-mode a {
+  color: var(--link-color-dark);
+}
+
+/* Otros elementos como encabezados, footer, etc. en modo claro y oscuro */
+header, nav, footer {
+  background-color: var(--button-background-light);
+  transition: background-color 0.3s ease;
+}
+
+/* Modo oscuro para header, nav y footer */
+.dark-mode header, .dark-mode nav, .dark-mode footer {
+  background-color: var(--button-background-dark);
+}
+
+/* Estilo para el botón del desplegable */
+.dropbtn {
+    background-color: #f1f1f1;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 6px 10px;
+    margin-right: 5px;
+    border-radius: 20px;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+/* Contenedor del desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Contenido del desplegable */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    border-radius: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Botones dentro del contenido del desplegable */
+.dropdown-content button {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Cambiar color de los botones al pasar el ratón */
+.dropdown-content button:hover {
+    background-color: #ccc;
+}
+
+/* Mostrar contenido del desplegable cuando se hace clic */
+.show {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .search-container input[type=text] {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+   .search-container input[type="text"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s ease;
+  }
+  .search-container input[type="text"]:hover {
+    border-color: #41fd29;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s ease;
+  }
+  .search-container button {
+          background-color: #4CAF50;
+          border: none;
+          color: white;
+          padding: 6px 10px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 20px;
+          cursor: pointer;
+          border-radius: 20px;
+          transition: background-color 0.3s ease;
+      }
+      .search-container button:hover {
+          background-color: #41fd29;
+      }
+      .search-container button  i {
+          margin-right: 5px;
+      }
+      
+
+  .search-engines {
+    display: flex;
+    margin-left: 20px;
+  }
+
+  .search-engines button {
+    background-color: #f1f1f1;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #006eff;
+    padding: 6px 10px;
+    margin-right: 5px;
+    border-radius: 20px;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+  }
+
+  .search-engines button:hover {
+          background-color: #41fd29;
+      }
+
+  .search-engines button.active {
+    background-color: #4CAF50;
+    color: white;
+
+  }
+  .search-engines button:hover.active{
+    background-color: #41fd29;
+    color: white;
+
+  }
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+  }
+header :hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d7d7d7;
+    padding: 10px;
+    transition: background-color 1s ease;
+    border-radius: 20px;
+  }
+nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 10px;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  }
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e7ffde;
+  padding: 0.5px;
+  margin-top: 60px;
+  }
+aside{
+display: flex;
+justify-content: right;
+align-items: right;
+background-color: #ffff;
+padding: 10px;
+}
+
+
+footer{
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #efefef;
+padding: 10px;
+border-radius: 0px;
+width: 1350px;
+height: 5px;
+}
+.top-button {
+  display: flex;
+  margin-left: 20px;
+}
+
+.top-button {
+  background-color: #f1f1f1;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  margin-right: 5px;
+  border-radius: 20px;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+.top-button:hover {
+        background-color: #41fd29;
+    }
+iframe {
+  border: none;
+  transition: filter 0.3s ease;
+  filter: grayscale(100%);
+}
+iframe:hover {
+  filter: grayscale(0%);
+}
+
+.boton {
+  background-color: #ccc;
+  border: none;
+  color: rgb(8, 8, 8);
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  display: inline-block;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #41fd29;
+  font-family: "Montserrat", sans-serif;
+}
+
+p{
+  font-family: "Montserrat", sans-serif;
+}
+h2{
+  font-family: "Montserrat", sans-serif;
+}
+
+h4{
+  font-family: "Montserrat", sans-serif;
+}
+
+li{
+  font-family: "Montserrat", sans-serif;
+}
+
+h3{
+  font-family: "Montserrat", sans-serif;
+}
+
+
+
+a {
+  color: #00fd088f;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: blue;
+}
+a:active {
+  color: #41fd29;
+}
+
+h1{
+  font-family:"Montserrat Alternates", sans-serif;
+  color: #00fd088f
+}
+
+
+  /* Estilo para el botón del desplegable */
+
+#myButton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+#myButton:hover {
+  background-color: #41fd29;
+}
+
+
+
+#planes {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+#planes:hover {
+  background-color: #41fd29;
+}
+
+#myStart :hover{
+  color: #41fd29;
+}
+.load-memory-saturation{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+.load-memory-saturation:hover {
+  background-color: #41fd29;
+}
+
+:root {
+  --primary-color: #4CAF50;
+  --secondary-color: #41fd29;
+  --background-color: #f3f3f3;
+  --text-color: #333;
+  --border-radius: 20px;
+}
+
+body {
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+header {
+  background-color: #f2f2f2;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  transition: background-color 1s ease;
+}
+header.dark-mode {
+  background-color: #000000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  transition: background-color 1s ease;
+}
+
+
+header:hover {
+  background-color: #d7d7d7;
+  border-radius: var(--border-radius);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 10px;
+  z-index: 999;
+}
+nav.dark-mode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  padding: 10px;
+  z-index: 999;
+}
+
+#main-nav {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.button, .dropbtn, .basic-button {
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
+}
+
+.button:hover, .dropbtn:hover, .basic-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.basic-button-red {
+  background-color: #af4c4c;
+}
+
+.basic-button-red:hover {
+  background-color: #ff0000;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  padding: 5px;
+  box-shadow: 0 2px 4px #0000001a;
+  flex-grow: 1;
+  margin-right: 20px;
+}
+
+.search-container input[type="text"] {
+  border: none;
+  padding: 6px;
+  font-size: 16px;
+  flex-grow: 1;
+  border-radius: var(--border-radius);
+  transition: border-color 0.3s ease;
+}
+
+.search-container input[type="text"]:focus,
+.search-container input[type="text"]:hover {
+  border-color: var(--secondary-color);
+  outline: none;
+  box-shadow: 0 0 10px #00000033;
+}
+
+.search-container button {
+  background-color: var(--primary-color);
+  border: none;
+  color: #ffffff;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+  background-color: var(--secondary-color);
+}
+
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 16px #00000033;
+  z-index: 1;
+  padding: 10px 0;
+}
+
+.dropdown-content button {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content button:hover {
+  background-color: #ccc;
+}
+
+.show {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  background-color: #e7ffde00;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #efefef;
+  padding: 10px;
+  border-radius: 0;
+  width: 100%;
+  height: 5px;
+}
+
+
+
+a {
+  color: #00fd088f;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: blue;
+}
+
+a:active {
+  color: var(--secondary-color);
+}
+
+h1 {
+  font-family: "Montserrat Alternates", sans-serif;
+  color: #00fd088f
+}
+/* Estilo personalizado para la selección de texto */
+::selection {
+  background-color: #1eff00a1; /* Color de fondo del resaltado */
+  color: #000000; /* Color del texto seleccionado */
+}
+
+/* Para navegadores más antiguos (opcional) */
+::-moz-selection {
+  background-color: #1eff00a1; /* Color de fondo del resaltado */
+  color: #000000; /* Color del texto seleccionado */
+}
+#favoritos-lista.eliminacion-activa {
+  background-color: #ffdddd; /* Fondo rojo claro para indicar eliminación */
+}
+#mensaje-eliminacion {
+  color: red;
+  display: none;
+}
+.favoritos {
+  display: flex;
+  justify-content: center; /* Alinea horizontalmente */
+  align-items: center; /* Alinea verticalmente */
+}
