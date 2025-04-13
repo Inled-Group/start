@@ -37,4 +37,4 @@ Si te está gustando la experiencia con Start difúndelo mandándoselo a tus con
 Tenemos una funcionalidad para ello arriba de todo a la izquierda que se llama **Compartir**
 
 ## Ayuda
-Disponemos de una completa Ayuda para acompañarle en sus dudas y primeros pasos en Start. [Abrir ayuda](inled-group.github.io/start/ayuda.html)
+Disponemos de una completa Ayuda para acompañarle en sus dudas y primeros pasos en Start. [Abrir ayuda](https://inled-group.github.io/start/ayuda.html)
