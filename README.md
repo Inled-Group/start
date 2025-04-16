@@ -8,6 +8,7 @@ Start soporta la búsqueda en :
 - Brave
 - DuckDuckGo
 - Qwant
+- Ecosia
 - Wikipedia
 
 ## Redescubra los índices 📒
@@ -22,8 +23,8 @@ Literalmente a un clic. Puede leer los periódicos nacionales más famosos:
 - ABC
 - La Razón
 - Libertad Digital
-- La Voz de Galicia (un extra)  
-Próximamente se insertarán algunos periódicos más.
+- El Debate 
+- La Vanguardia
 
 ## Cargue y descargue iconos, ahorre más memoria
 Para mejorar el rendimiento de Start se ha añadido una función que carga los iconos **solo** cuando el usuario lo desea.  

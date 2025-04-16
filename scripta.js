@@ -317,6 +317,9 @@ window.addEventListener('scroll', function() {
         case 'qwant':
           window.open(`https://www.qwant.com/?q=${searchTerm}&client=opensearch`, '_blank');
           break;
+        case 'ecosia':
+          window.open(`https://www.ecosia.org/search?q=${searchTerm}`, '_blank');
+          break;
         case 'wikipedia':
           window.open(`https://es.wikipedia.org/wiki/${searchTerm}`, '_blank');
           break;

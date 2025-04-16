@@ -36,6 +36,7 @@
         <button id="brave-button"><i class="fa-brands fa-brave"></i>Brave</button>
         <button id="duckduckgo-button">DuckDuckGo</button>
         <button id="qwant-button"><i class="fa-solid fa-q"></i>Qwant</button>
+        <button id="ecosia-button"><i class="fa-solid fa-tree"></i>Ecosia</button>
         <button id="wikipedia-button"><i class="fa-brands fa-wikipedia-w"></i>Wikipedia</button>
       </div>
     </div>
@@ -220,14 +221,6 @@ shopping_bag
             </div>
         </div>
         <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown33')" class="dropbtn"><span class="material-symbols-rounded">
-                casino
-                </span>Juegos</button>
-            <div id="dropdown33" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
             <button onclick="toggleDropdown('dropdown29')" class="dropbtn">Sitios de Inled Group</button>
             <div id="dropdown29" class="dropdown-content">
                 <!-- Botones se generarán dinámicamente -->
@@ -254,7 +247,8 @@ shopping_bag
 <button onclick="toggleIframe('miIframe3')", class="load-memory-saturation">ABC</button>
 <button onclick="toggleIframe('miIframe4')", class="load-memory-saturation">La Razón</button>
 <button onclick="toggleIframe('miIframe5')", class="load-memory-saturation">Libertad Digital</button>
-<button onclick="toggleIframe('miIframe6')", class="load-memory-saturation">La Voz de Galicia</button>
+<button onclick="toggleIframe('miIframe6')", class="load-memory-saturation">El Debate</button>
+<button onclick="toggleIframe('miIframe7')", class="load-memory-saturation">La Vanguardia</button>
 <button id="toggleButton", class="load-memory-saturation">Cargar/borrar iconos</button>
 <button id="toggle-dark-mode" class="load-memory-saturation">Modo Oscuro</button>
 
@@ -268,6 +262,7 @@ shopping_bag
 <iframe id="miIframe4" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
 <iframe id="miIframe5" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
 <iframe id="miIframe6" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
+<iframe id="miIframe7" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
 </body>
 
 <script>
@@ -295,7 +290,9 @@ shopping_bag
             case 'miIframe5':
                 return 'https://www.libertaddigital.com/';
             case 'miIframe6':
-                return 'https://www.lavozdegalicia.es/';
+                return 'https://www.eldebate.com/';
+            case 'miIframe7':
+                return 'https://www.lavanguardia.com/';
             default:
                 return '';
         }
