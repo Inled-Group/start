@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title id="pageTitle">Start></title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="utf-8"/>
+  <meta name="author" content="Start>"/>
+  <meta name="description" content="Nuevo Start> Búsqueda Rápida y segura, con la confianza de Virustotal"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="scripta.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a3d5ef9bfb.js" crossorigin="anonymous" defer></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0">
+</head>
+<body>
+  <!-- Barra de navegación superior -->
+  <nav id="sticky-nav">
+    <div class="nav-actions">
+      <a href="start.html" id="myStart">
+        <span class="material-symbols-rounded">home</span>
+      </a>
+      
+      <div class="share-container">
+        <button id="share-button"><i class="fa-solid fa-share-nodes"></i> Compartir</button>
+        <div id="share-options" class="share-options">
+          <a href="#" id="share-email"><i class="fa-regular fa-envelope"></i> Correo</a>
+          <a href="#" id="share-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a href="#" id="share-telegram"><i class="fa-brands fa-telegram"></i> Telegram</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="search-wrapper">
+      <div class="search-container">
+        <button id="clear-button"><i class="fa-solid fa-trash fa-xs"></i></button>
+        <input type="text" id="search-input" placeholder="Pulsa en la lupa para buscar">
+        <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+      
+      <div class="search-engines">
+        <button id="google-button" class="active"><i class="fa-brands fa-google"></i> Google</button>
+        <button id="bing-button"><i class="fa-brands fa-microsoft"></i> Bing</button>
+        <button id="brave-button"><i class="fa-brands fa-brave"></i> Brave</button>
+        <button id="duckduckgo-button">DuckDuckGo</button>
+        <button id="qwant-button"><i class="fa-solid fa-q"></i> Qwant</button>
+        <button id="ecosia-button"><i class="fa-solid fa-tree"></i> Ecosia</button>
+        <button id="wikipedia-button"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main>
+    <!-- Sección de desplegables -->
+    <div class="dropdown-container">
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown1')" class="dropbtn"><i class="fa-regular fa-envelope"></i> Correo</button>
+        <div id="dropdown1" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown2')" class="dropbtn"><i class="fa-solid fa-file-word"></i> Documentos</button>
+        <div id="dropdown2" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown34')" class="dropbtn"><i class="fa-solid fa-file-pdf"></i> PDF</button>
+        <div id="dropdown34" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown3')" class="dropbtn"><i class="fa-solid fa-file-powerpoint"></i> Presentaciones</button>
+        <div id="dropdown3" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown4')" class="dropbtn"><i class="fa-solid fa-file-excel"></i> Hojas de cálculo</button>
+        <div id="dropdown4" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown5')" class="dropbtn"><i class="fa-solid fa-list-check"></i> Formularios</button>
+        <div id="dropdown5" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown6')" class="dropbtn"><i class="fa-solid fa-cloud"></i> Nube</button>
+        <div id="dropdown6" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown7')" class="dropbtn"><i class="fa-solid fa-message"></i> IA</button>
+        <div id="dropdown7" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown10')" class="dropbtn"><i class="fa-solid fa-location-dot"></i> Mapas</button>
+        <div id="dropdown10" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown11')" class="dropbtn"><span class="material-symbols-rounded">shopping_bag</span> Tiendas de aplicaciones</button>
+        <div id="dropdown11" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown12')" class="dropbtn"><i class="fa-solid fa-phone"></i> Videollamadas</button>
+        <div id="dropdown12" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown14')" class="dropbtn"><span class="material-symbols-rounded">forum</span> Chat</button>
+        <div id="dropdown14" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown13')" class="dropbtn"><i class="fa-regular fa-calendar"></i> Calendarios</button>
+        <div id="dropdown13" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown15')" class="dropbtn"><i class="fa-brands fa-youtube"></i> YouTube</button>
+        <div id="dropdown15" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown16')" class="dropbtn"><i class="fa-brands fa-spotify"></i> Música en línea</button>
+        <div id="dropdown16" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown30')" class="dropbtn"><i class="fa-solid fa-graduation-cap"></i> Estudio</button>
+        <div id="dropdown30" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown17')" class="dropbtn"><i class="fa-solid fa-newspaper"></i> Noticias</button>
+        <div id="dropdown17" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown18')" class="dropbtn"><i class="fa-solid fa-tv"></i> TV</button>
+        <div id="dropdown18" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown19')" class="dropbtn"><i class="fa-solid fa-radio"></i> Radio</button>
+        <div id="dropdown19" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown20')" class="dropbtn"><i class="fa-regular fa-thumbs-up"></i> RRSS</button>
+        <div id="dropdown20" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown22')" class="dropbtn"><i class="fa-solid fa-book"></i> Diccionario</button>
+        <div id="dropdown22" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown24')" class="dropbtn"><i class="fa-solid fa-image"></i> Imágenes</button>
+        <div id="dropdown24" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown25')" class="dropbtn"><i class="fa-solid fa-wifi"></i> WiFi</button>
+        <div id="dropdown25" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown26')" class="dropbtn"><i class="fa-solid fa-shield-halved"></i> VirusTotal</button>
+        <div id="dropdown26" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown27')" class="dropbtn"><i class="fa-solid fa-language"></i> Traductor</button>
+        <div id="dropdown27" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown31')" class="dropbtn"><i class="fa-regular fa-file-video"></i> Creación de vídeo</button>
+        <div id="dropdown31" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown32')" class="dropbtn"><i class="fa-brands fa-wordpress-simple"></i> Crear webs</button>
+        <div id="dropdown32" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown8')" class="dropbtn"><span class="material-symbols-rounded">rocket_launch</span> Más</button>
+        <div id="dropdown8" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown29')" class="dropbtn">Sitios de Inled Group</button>
+        <div id="dropdown29" class="dropdown-content">
+          <!-- Botones se generarán dinámicamente -->
+        </div>
+      </div>
+    </div>
+    
+    <!-- Sección periódicos estilo Bing -->
+    <section id="news-section">
+      <h2 class="news-title">Periódicos</h2>
+      <div class="news-grid">
+        <div class="news-item" onclick="toggleIframe('miIframe')">
+          <img src="/api/placeholder/80/80" alt="El Mundo" class="news-logo">
+          <div class="news-name">El Mundo</div>
+        </div>
+        
+        <div class="news-item" onclick="toggleIframe('miIframe2')">
+          <img src="/api/placeholder/80/80" alt="El País" class="news-logo">
+          <div class="news-name">El País</div>
+        </div>
+        
+        <div class="news-item" onclick="toggleIframe('miIframe3')">
+          <img src="/api/placeholder/80/80" alt="ABC" class="news-logo">
+          <div class="news-name">ABC</div>
+        </div>
+        
+        <div class="news-item" onclick="toggleIframe('miIframe4')">
+          <img src="/api/placeholder/80/80" alt="La Razón" class="news-logo">
+          <div class="news-name">La Razón</div>
+        </div>
+        
+        <div class="news-item" onclick="toggleIframe('miIframe5')">
+          <img src="/api/placeholder/80/80" alt="Libertad Digital" class="news-logo">
+          <div class="news-name">Libertad Digital</div>
+        </div>
+        
+        <div class="news-item" onclick="toggleIframe('miIframe6')">
+          <img src="/api/placeholder/80/80" alt="El Debate" class="news-logo">
+          <div class="news-name">El Debate</div>
+        </div>
+        
+        <div class="news-item" onclick="toggleIframe('miIframe7')">
+          <img src="/api/placeholder/80/80" alt="La Vanguardia" class="news-logo">
+          <div class="news-name">La Vanguardia</div>
+        </div>
+      </div>
+      <!-- Iframes para visualización de periódicos (ocultos inicialmente) -->
+<div id="iframe-container" style="display: none; margin-top: 20px;">
+    <button id="close-iframe" class="basic-button-red" style="position: absolute; right: 20px; z-index: 1001;">
+      <i class="fa-solid fa-xmark"></i> Cerrar
+    </button>
+    <iframe id="miIframe" src="https://www.elmundo.es" style="width: 100%; height: 600px; display: none; border: none;"></iframe>
+    <iframe id="miIframe2" src="https://www.elpais.com" style="width: 100%; height: 600px; display: none; border: none;"></iframe>
+    <iframe id="miIframe3" src="https://www.abc.es" style="width: 100%; height: 600px; display: none; border: none;"></iframe>
+    <iframe id="miIframe4" src="https://www.larazon.es" style="width: 100%; height: 600px; display: none; border: none;"></iframe>
+    <iframe id="miIframe5" src="https://www.libertaddigital.com" style="width: 100%; height: 600px; display: none; border: none;"></iframe>
+    <iframe id="miIframe6" src="https://www.eldebate.com" style="width: 100%; height: 600px; display: none; border: none;"></iframe>
+    <iframe id="miIframe7" src="https://www.lavanguardia.com" style="width: 100%; height: 600px; display: none; border: none;"></iframe>
+  </div>
+    </section>
+    
+    <!-- Favoritos -->
+    <div class="favoritos">
+      <h1>Mis Favoritos</h1>
+      <input type="text" id="nombre-favorito" class="input" placeholder="Nombre del favorito">
+      <input type="text" id="url-favorito" class="input" placeholder="URL del favorito">
+      <button onclick="guardarFavorito()" class="basic-button"><i class="fa-regular fa-star"></i> Guardar Favorito</button>
+      <button onclick="toggleEliminarFavoritos()" class="basic-button-red"><i class="fa-solid fa-trash"></i> Eliminar Favoritos</button>
+      <button id="toggle-dark-mode" class="basic-button"><i class="fa-solid fa-moon"></i> Modo Oscuro</button>
+      <p id="mensaje-eliminacion">Haz clic en un favorito para eliminarlo</p>
+      <ul id="favoritos-lista">
+        <!-- Los favoritos se cargarán dinámicamente aquí -->
+      </ul>
+    </div>
+
+
+  </body>
+  </html>

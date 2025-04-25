@@ -1243,3 +1243,22 @@ h1 {
   justify-content: center; /* Alinea horizontalmente */
   align-items: center; /* Alinea verticalmente */
 }
+.spinner-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.spinner {
+  border: 8px solid #f3f3f300; /* gris claro */
+  border-top: 8px solid #00fd088f; /* azul */
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

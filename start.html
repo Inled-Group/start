@@ -8,7 +8,8 @@
   <script src="script2.js" defer></script>
   <meta charset="utf-8"/>
   <meta name="author" content="Start>"/>
-  <meta name="description" content="Nuevo Start> Búsqueda Rápida y segura, con la confianza de Virustotal"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0" />
+  <script src="https://kit.fontawesome.com/a3d5ef9bfb.js" crossorigin="anonymous"></script>
 </head>
 <a id="top"></a>
 <body>
@@ -248,34 +249,57 @@ shopping_bag
 <button onclick="toggleIframe('miIframe4')", class="load-memory-saturation">La Razón</button>
 <button onclick="toggleIframe('miIframe5')", class="load-memory-saturation">Libertad Digital</button>
 <button onclick="toggleIframe('miIframe6')", class="load-memory-saturation">El Debate</button>
-<button onclick="toggleIframe('miIframe7')", class="load-memory-saturation">La Vanguardia</button>
-<button id="toggleButton", class="load-memory-saturation">Cargar/borrar iconos</button>
 <button id="toggle-dark-mode" class="load-memory-saturation">Modo Oscuro</button>
 
 </nav>
 <div class="contenedor">
     <img src="ad1.gif" alt="AdPulse" class="imagen">
 </div>
+<div id="spinner" class="spinner-container" style="display: none;">
+    <div class="spinner"></div>
+  </div>
+  
+  
 <iframe id="miIframe" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
 <iframe id="miIframe2" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
 <iframe id="miIframe3" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
 <iframe id="miIframe4" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
 <iframe id="miIframe5" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
 <iframe id="miIframe6" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
-<iframe id="miIframe7" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
 </body>
 
 <script>
-    function toggleIframe(iframeId) {
-        var iframe = document.getElementById(iframeId);
-        if (iframe.style.display === 'none') {
-            iframe.style.display = 'block';
-            iframe.src = getIframeSrc(iframeId);
-        } else {
-            iframe.style.display = 'none';
-            iframe.src = '';
-        }
+function toggleIframe(iframeId) {
+    const spinner = document.getElementById("spinner");
+    const iframe = document.getElementById(iframeId);
+    const allIframes = document.querySelectorAll("iframe");
+
+    // Si el iframe ya está visible, lo ocultamos y cancelamos la carga
+    if (iframe.style.display === 'block') {
+        iframe.style.display = 'none';
+        iframe.removeAttribute('src');
+        spinner.style.display = 'none';
+        return; // Salir de la función
     }
+
+    // Ocultar otros iframes y limpiar su src
+    allIframes.forEach((el) => {
+        if (el !== iframe) {
+            el.style.display = 'none';
+            el.removeAttribute('src');
+        }
+    });
+
+    // Mostrar spinner y cargar iframe
+    spinner.style.display = 'block';
+    iframe.style.display = 'block';
+    iframe.src = getIframeSrc(iframeId);
+
+    iframe.onload = () => {
+        spinner.style.display = 'none';
+    };
+}
+
 
     function getIframeSrc(iframeId) {
         switch (iframeId) {
@@ -291,33 +315,11 @@ shopping_bag
                 return 'https://www.libertaddigital.com/';
             case 'miIframe6':
                 return 'https://www.eldebate.com/';
-            case 'miIframe7':
-                return 'https://www.lavanguardia.com/';
             default:
                 return '';
         }
     }
     const linkElement = document.createElement('link');
-linkElement.rel = 'stylesheet';
-linkElement.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0';
-      
-const scriptElement = document.createElement('script');
-scriptElement.src = 'https://kit.fontawesome.com/a3d5ef9bfb.js';
-scriptElement.crossOrigin = 'anonymous';
-      
-let isLoaded = false;
-      
-    document.getElementById('toggleButton').addEventListener('click', function() {
-         if (!isLoaded) {
-              document.head.appendChild(linkElement);
-              document.head.appendChild(scriptElement);
-              isLoaded = true;
-          } else {
-              linkElement.remove();
-              scriptElement.remove();
-              isLoaded = false;
-          }
-      });
 
 
 </script>

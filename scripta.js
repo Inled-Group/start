@@ -184,153 +184,299 @@ dropdown34: [
 
     
 };
-// Función para mostrar/ocultar el menú desplegable
-function toggleDropdown(dropdownId) {
-    // Cerrar todos los desplegables antes de abrir el nuevo
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    for (var i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-        }
-    }
-    // Mostrar/ocultar el nuevo desplegable
-    document.getElementById(dropdownId).classList.toggle("show");
-}
-
-// Cerrar el desplegable si se hace clic fuera de él
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
-
-        // Generar los botones dinámicamente
-        document.addEventListener("DOMContentLoaded", () => {
-            console.log("dropdownContents", dropdownContents) //Verify if the variable dropdownContents is correct
-            for (const [dropdownId, buttons] of Object.entries(dropdownContents)) {
-                const dropdownContent = document.getElementById(dropdownId);
-                console.log("dropdownId", dropdownId, "dropdownContent", dropdownContent) //Verify what is returning in each iteration
-                if (dropdownContent) { // Check if dropdownContent exists
-                    buttons.forEach(button => {
-                        const btn = document.createElement("button");
-                        btn.textContent = button.text;
-                        btn.onclick = () => navigateTo(button.url);
-                        dropdownContent.appendChild(btn);
-                    });
-                } else {
-                    console.error(`Element with ID '${dropdownId}' not found.`); // Show in the console when a element is not found
-                }
-            }
-        });
-
-        // Función para navegar a una URL específica
-        function navigateTo(url) {
-            window.location.href = url;
-        }
-// In scripta.js
-document.addEventListener("DOMContentLoaded", function() {
-    const myButton = document.getElementById("myButton");
-    if (myButton) {
-        myButton.addEventListener("click", function() {
-          // Your button click logic here
-          console.log("Button clicked!");
-        });
-    } else {
-      console.error("Error: 'myButton' element not found. Esto se debe a que se cargará en la página actualizar.html");
-    }
-  });
 
 
-// Cerrar el desplegable si se hace clic fuera de él
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
-    const searchInput = document.getElementById('search-input');
-    const searchButton = document.getElementById('search-button');
-    const searchEngineButtons = document.querySelectorAll('.search-engines button');
-
-
-    searchEngineButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        searchEngineButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-      });
+// Cargar los botones en los dropdowns
+Object.keys(dropdownData).forEach(dropdownId => {
+  const dropdown = document.getElementById(dropdownId);
+  if (dropdown) {
+    dropdownData[dropdownId].forEach(item => {
+      const button = document.createElement('button');
+      button.textContent = item.name;
+      button.onclick = function() {
+        window.open(item.url, '_blank');
+      };
+      dropdown.appendChild(button);
     });
-    window.addEventListener('scroll', function() {
-  var stickyNav = document.getElementById('sticky-nav');
-  var scrollPosition = window.pageYOffset;
-
-  if (scrollPosition >= 0) {
-    stickyNav.style.position = 'fixed';
-    stickyNav.style.top = '0';
-    stickyNav.style.width = '100%';
-  } else {
-    stickyNav.style.position = 'static';
   }
 });
 
-window.addEventListener('scroll', function() {
-    var stickyNav = document.getElementById('sticky-nav2');
-    var scrollPosition = window.pageYOffset;
+// Función para alternar la visibilidad de los dropdowns
+function toggleDropdown(dropdownId) {
+  const dropdown = document.getElementById(dropdownId);
+  const allDropdowns = document.querySelectorAll('.dropdown-content');
   
-    if (scrollPosition >= 0) {
-      stickyNav.style.position = 'fixed';
-      stickyNav.style.top = '600px';
-      stickyNav.style.width = '100%';
-    } else {
-      stickyNav.style.position = 'static';
+  // Ocultar todos los dropdowns
+  allDropdowns.forEach(function(el) {
+    if (el.id !== dropdownId) {
+      el.classList.remove('show');
     }
   });
+  
+  // Mostrar/ocultar el dropdown seleccionado
+  dropdown.classList.toggle('show');
+}
 
-    searchButton.addEventListener('click', () => {
-      const searchTerm = searchInput.value.trim();
-      const activeSearchEngine = document.querySelector('.search-engines button.active').id.replace('-button', '');
-
-      switch (activeSearchEngine) {
-        case 'google':
-          window.open(`https://www.google.com/search?q=${searchTerm}`, '_blank');
-          break;
-        case 'bing':
-          window.open(`https://www.bing.com/search?q=${searchTerm}`, '_blank');
-          break;
-        case 'brave':
-          window.open(`https://search.brave.com/search?q=${searchTerm}`, '_blank');
-          break;
-        case 'duckduckgo':
-          window.open(`https://duckduckgo.com/?q=${searchTerm}`, '_blank');
-          break;
-        case 'qwant':
-          window.open(`https://www.qwant.com/?q=${searchTerm}&client=opensearch`, '_blank');
-          break;
-        case 'ecosia':
-          window.open(`https://www.ecosia.org/search?q=${searchTerm}`, '_blank');
-          break;
-        case 'wikipedia':
-          window.open(`https://es.wikipedia.org/wiki/${searchTerm}`, '_blank');
-          break;
+// Cerrar los dropdowns si se hace clic fuera de ellos
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    const dropdowns = document.querySelectorAll('.dropdown-content');
+    dropdowns.forEach(function(dropdown) {
+      if (dropdown.classList.contains('show')) {
+        dropdown.classList.remove('show');
       }
     });
+  }
+};
 
-    document.getElementById('clear-button').addEventListener('click', function() {
-        document.getElementById('search-input').value = '';
+// Inicializar configuraciones cuando el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+// Verificar si el modo oscuro estaba activado
+if (localStorage.getItem('darkMode') === 'true') {
+document.body.classList.add('dark-mode');
+}
+
+// Cargar el motor de búsqueda preferido del usuario
+const savedEngine = localStorage.getItem('searchEngine') || 'google';
+buscadorActual = savedEngine;
+
+// Aplicar la clase active al botón correspondiente
+document.querySelectorAll('.search-engines button').forEach(function(btn) {
+btn.classList.remove('active');
+// Identifica qué botón corresponde al motor guardado
+if (btn.id === savedEngine + '-button') {
+btn.classList.add('active');
+}
+});
+
+// Cargar favoritos guardados
+cargarFavoritos();
+});
+
+// Alternar modo oscuro
+document.getElementById('toggle-dark-mode').addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+  localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+});
+
+// Compartir la página
+document.getElementById('share-button').addEventListener('click', function() {
+  document.getElementById('share-options').style.display = 
+    document.getElementById('share-options').style.display === 'block' ? 'none' : 'block';
+});
+
+// Opciones de compartir
+document.getElementById('share-email').addEventListener('click', function(e) {
+  e.preventDefault();
+  window.location.href = 'mailto:?subject=Visita%20Start>&body=Échale%20un%20vistazo%20a%20esta%20página%20de%20inicio:%20' + encodeURIComponent(window.location.href);
+});
+
+document.getElementById('share-whatsapp').addEventListener('click', function(e) {
+  e.preventDefault();
+  window.open('https://wa.me/?text=' + encodeURIComponent('Échale un vistazo a esta página de inicio: ' + window.location.href), '_blank');
+});
+
+document.getElementById('share-telegram').addEventListener('click', function(e) {
+  e.preventDefault();
+  window.open('https://t.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent('Échale un vistazo a esta página de inicio'), '_blank');
+});
+
+// Funcionalidad de búsqueda
+let buscadorActual = 'google';
+
+// Función para realizar la búsqueda
+function buscar() {
+  const termino = document.getElementById('search-input').value;
+  if (termino.trim() === '') return;
+  
+  let url;
+  switch (buscadorActual) {
+    case 'google':
+      url = 'https://www.google.com/search?q=' + encodeURIComponent(termino);
+      break;
+    case 'bing':
+      url = 'https://www.bing.com/search?q=' + encodeURIComponent(termino);
+      break;
+    case 'brave':
+      url = 'https://search.brave.com/search?q=' + encodeURIComponent(termino);
+      break;
+    case 'duckduckgo':
+      url = 'https://duckduckgo.com/?q=' + encodeURIComponent(termino);
+      break;
+    case 'qwant':
+      url = 'https://www.qwant.com/?q=' + encodeURIComponent(termino);
+      break;
+    case 'ecosia':
+      url = 'https://www.ecosia.org/search?q=' + encodeURIComponent(termino);
+      break;
+    case 'wikipedia':
+      url = 'https://es.wikipedia.org/wiki/Special:Search?search=' + encodeURIComponent(termino);
+      break;
+    default:
+      url = 'https://www.google.com/search?q=' + encodeURIComponent(termino);
+  }
+  
+  window.open(url, '_blank');
+}
+
+// Botones de motores de búsqueda
+document.getElementById('google-button').addEventListener('click', function() {
+  setActiveSearchEngine('google', this);
+});
+
+document.getElementById('bing-button').addEventListener('click', function() {
+  setActiveSearchEngine('bing', this);
+});
+
+document.getElementById('brave-button').addEventListener('click', function() {
+  setActiveSearchEngine('brave', this);
+});
+
+document.getElementById('duckduckgo-button').addEventListener('click', function() {
+  setActiveSearchEngine('duckduckgo', this);
+});
+
+document.getElementById('qwant-button').addEventListener('click', function() {
+  setActiveSearchEngine('qwant', this);
+});
+
+document.getElementById('ecosia-button').addEventListener('click', function() {
+  setActiveSearchEngine('ecosia', this);
+});
+
+document.getElementById('wikipedia-button').addEventListener('click', function() {
+  setActiveSearchEngine('wikipedia', this);
+});
+
+// Función para establecer el motor de búsqueda activo
+function setActiveSearchEngine(engine, button) {
+buscadorActual = engine;
+
+// Quitar clase activa de todos los botones
+document.querySelectorAll('.search-engines button').forEach(function(btn) {
+btn.classList.remove('active');
+});
+
+// Añadir clase activa al botón seleccionado
+button.classList.add('active');
+
+// Guardar la preferencia del usuario
+localStorage.setItem('searchEngine', engine);
+}
+
+// Gestión de favoritos
+function guardarFavorito() {
+  const nombre = document.getElementById('nombre-favorito').value.trim();
+  const url = document.getElementById('url-favorito').value.trim();
+  
+  if (nombre === '' || url === '') {
+    alert('Por favor, rellena tanto el nombre como la URL del favorito.');
+    return;
+  }
+  
+  if (!url.startsWith('http://') && !url.startsWith('https://')) {
+    const urlCorregida = 'https://' + url;
+    document.getElementById('url-favorito').value = urlCorregida;
+  }
+  
+  // Obtener favoritos actuales
+  const favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
+  
+  // Añadir nuevo favorito
+  favoritos.push({
+    nombre: nombre,
+    url: document.getElementById('url-favorito').value
+  });
+  
+  // Guardar en localStorage
+  localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  
+  // Limpiar campos
+  document.getElementById('nombre-favorito').value = '';
+  document.getElementById('url-favorito').value = '';
+  
+  // Actualizar la lista de favoritos
+  cargarFavoritos();
+}
+
+function cargarFavoritos() {
+  const favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
+  const lista = document.getElementById('favoritos-lista');
+  
+  // Limpiar lista actual
+  lista.innerHTML = '';
+  
+  // Mostrar cada favorito
+  favoritos.forEach(function(favorito) {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = favorito.url;
+    a.target = '_blank';
+    a.textContent = favorito.nombre;
+    
+    // Añadir evento para eliminación
+    li.addEventListener('click', function(e) {
+      if (lista.classList.contains('eliminacion-activa')) {
+        e.preventDefault();
+        eliminarFavorito(favorito);
+      }
     });
     
+    li.appendChild(a);
+    lista.appendChild(li);
+  });
+}
 
+function toggleEliminarFavoritos() {
+  const lista = document.getElementById('favoritos-lista');
+  const mensaje = document.getElementById('mensaje-eliminacion');
+  
+  lista.classList.toggle('eliminacion-activa');
+  
+  if (lista.classList.contains('eliminacion-activa')) {
+    mensaje.style.display = 'block';
+  } else {
+    mensaje.style.display = 'none';
+  }
+}
 
+function eliminarFavorito(favorito) {
+  const favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
+  
+  // Filtrar el favorito a eliminar
+  const nuevosFavoritos = favoritos.filter(function(f) {
+    return f.nombre !== favorito.nombre || f.url !== favorito.url;
+  });
+  
+  // Guardar en localStorage
+  localStorage.setItem('favoritos', JSON.stringify(nuevosFavoritos));
+  
+  // Actualizar la lista
+  cargarFavoritos();
+}
+
+// Función para alternar la visualización de iframes de periódicos
+function toggleIframe(iframeId) {
+const container = document.getElementById('iframe-container');
+const iframe = document.getElementById(iframeId);
+const allIframes = document.querySelectorAll('#iframe-container iframe');
+
+// Ocultar todos los iframes
+allIframes.forEach(function(frame) {
+frame.style.display = 'none';
+});
+
+// Mostrar el contenedor y el iframe seleccionado
+container.style.display = 'block';
+iframe.style.display = 'block';
+
+// Hacer scroll al iframe
+container.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Añadir evento para cerrar el iframe
+document.getElementById('close-iframe').addEventListener('click', function() {
+document.getElementById('iframe-container').style.display = 'none';
+});
 
 
