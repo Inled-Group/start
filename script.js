@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function() {
+
 // Definir los contenidos de los desplegables
 const dropdownData = {
     dropdown1: [
@@ -455,27 +457,33 @@ function eliminarFavorito(favorito) {
 }
 
 // Función para alternar la visualización de iframes de periódicos
-function toggleIframe(iframeId) {
-const container = document.getElementById('iframe-container');
-const iframe = document.getElementById(iframeId);
-const allIframes = document.querySelectorAll('#iframe-container iframe');
+// Función para alternar la visualización de iframes de periódicos con carga perezosa
+window.toggleIframe = function(iframeId) {
+  const container = document.getElementById('iframe-container');
+  const iframe = document.getElementById(iframeId);
+  const allIframes = document.querySelectorAll('#iframe-container iframe');
 
-// Ocultar todos los iframes
-allIframes.forEach(function(frame) {
-frame.style.display = 'none';
+  // Ocultar todos los iframes
+  allIframes.forEach(function(frame) {
+    frame.style.display = 'none';
+    // No limpiamos el src para preservar el contenido si ya fue cargado
+  });
+
+  // Cargar el contenido solo si no se ha cargado antes (usando data-src)
+  if (iframe.getAttribute('src') === 'about:blank' || !iframe.getAttribute('src')) {
+    // Obtener la URL real del atributo data-src
+    const realSrc = iframe.getAttribute('data-src');
+    if (realSrc) {
+      iframe.setAttribute('src', realSrc);
+    }
+  }
+
+  // Mostrar el contenedor y el iframe seleccionado
+  container.style.display = 'block';
+  iframe.style.display = 'block';
+
+  // Hacer scroll al iframe
+  container.scrollIntoView({ behavior: 'smooth' });
+};
 });
-
-// Mostrar el contenedor y el iframe seleccionado
-container.style.display = 'block';
-iframe.style.display = 'block';
-
-// Hacer scroll al iframe
-container.scrollIntoView({ behavior: 'smooth' });
-}
-
-// Añadir evento para cerrar el iframe
-document.getElementById('close-iframe').addEventListener('click', function() {
-document.getElementById('iframe-container').style.display = 'none';
-});
-
 
