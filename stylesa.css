@@ -1257,7 +1257,102 @@ h1 {
   animation: spin 1s linear infinite;
   margin: auto;
 }
+/* Barra de navegador */
+#browser-bar {
+  display: none;
+  background: #f1f3f4;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #ccc;
+  position: sticky;
+  top: 60px; /* Puedes ajustar si tienes navbar arriba */
+  z-index: 1000;
+}
 
+/* Campo de URL */
+#iframe-url {
+  flex: 1;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+}
+
+/* Botón de nueva pestaña */
+#open-new-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#open-new-tab i {
+  font-size: 20px;
+  color: #333;
+}
+
+#open-new-tab:hover i {
+  color: #007bff;
+}
+
+/* Contenedor iframe */
+#iframe-container {
+  display: none;
+  position: relative;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Botón cerrar (X) */
+#close-iframe {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#close-iframe:hover {
+  color: #ff0000;
+}
+
+/* Iframes */
+#iframe-container iframe {
+  width: 90%;
+  height: 800px;
+  margin-top: 40px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  display: none;
+}
+
+/* Spinner */
+.spinner-container {
+  margin-top: 40px;
+  display: none;
+}
+
+.spinner-container .spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+/* Animación de rotación */
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }

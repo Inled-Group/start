@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
 
 // Definir los contenidos de los desplegables
 const dropdownData = {
@@ -187,36 +186,24 @@ dropdown34: [
 };
 
 
-// Cargar los botones en los dropdowns
-Object.keys(dropdownData).forEach(dropdownId => {
-  const dropdown = document.getElementById(dropdownId);
-  if (dropdown) {
-    dropdownData[dropdownId].forEach(item => {
-      const button = document.createElement('button');
-      button.textContent = item.name;
-      button.onclick = function() {
-        window.open(item.url, '_blank');
-      };
-      dropdown.appendChild(button);
-    });
-  }
-});
-
-// Función para alternar la visibilidad de los dropdowns
-function toggleDropdown(dropdownId) {
-  const dropdown = document.getElementById(dropdownId);
-  const allDropdowns = document.querySelectorAll('.dropdown-content');
-  
-  // Ocultar todos los dropdowns
-  allDropdowns.forEach(function(el) {
-    if (el.id !== dropdownId) {
-      el.classList.remove('show');
+  // Cargar datos en los dropdowns
+  Object.keys(dropdownData).forEach(dropdownId => {
+    const dropdown = document.getElementById(dropdownId);
+    if (dropdown) {
+      dropdownData[dropdownId].forEach(item => {
+        const button = document.createElement('button');
+        button.textContent = item.text; // Usar item.text en lugar de item.name
+        button.onclick = function() {
+          window.open(item.url, '_blank');
+        };
+        dropdown.appendChild(button);
+      });
     }
   });
-  
-  // Mostrar/ocultar el dropdown seleccionado
-  dropdown.classList.toggle('show');
-}
+
+window.toggleDropdown = function(dropdownId) {
+  const dropdown = document.getElementById(dropdownId);
+  const allDropdowns = document.querySelectorAll('.dropdown-content');
 
 // Cerrar los dropdowns si se hace clic fuera de ellos
 window.onclick = function(event) {
@@ -228,6 +215,13 @@ window.onclick = function(event) {
       }
     });
   }
+};
+allDropdowns.forEach(function(el) {
+  if (el.id !== dropdownId) {
+    el.classList.remove('show');
+  }
+});
+dropdown.classList.toggle('show');
 };
 
 // Inicializar configuraciones cuando el DOM esté completamente cargado
@@ -286,7 +280,7 @@ document.getElementById('share-telegram').addEventListener('click', function(e) 
 let buscadorActual = 'google';
 
 // Función para realizar la búsqueda
-function buscar() {
+window.buscar = function() {
   const termino = document.getElementById('search-input').value;
   if (termino.trim() === '') return;
   
@@ -318,7 +312,7 @@ function buscar() {
   }
   
   window.open(url, '_blank');
-}
+};
 
 // Botones de motores de búsqueda
 document.getElementById('google-button').addEventListener('click', function() {
@@ -365,8 +359,18 @@ button.classList.add('active');
 localStorage.setItem('searchEngine', engine);
 }
 
+//Event Listener que detecta que se está pulsando el botón de buscar o la tecla Enter
+document.getElementById('search-button').addEventListener('click', window.buscar);
+
+// También deberías manejar la tecla Enter en el input:
+document.getElementById('search-input').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    window.buscar();
+  }
+});
+
 // Gestión de favoritos
-function guardarFavorito() {
+window.guardarFavorito = function() {
   const nombre = document.getElementById('nombre-favorito').value.trim();
   const url = document.getElementById('url-favorito').value.trim();
   
@@ -428,7 +432,7 @@ function cargarFavoritos() {
   });
 }
 
-function toggleEliminarFavoritos() {
+window.toggleEliminarFavoritos = function() {
   const lista = document.getElementById('favoritos-lista');
   const mensaje = document.getElementById('mensaje-eliminacion');
   
@@ -485,5 +489,27 @@ window.toggleIframe = function(iframeId) {
   // Hacer scroll al iframe
   container.scrollIntoView({ behavior: 'smooth' });
 };
+// Agregar esta función a las funciones globales
+window.cerrarIframe = function() {
+  const container = document.getElementById('iframe-container');
+  const allIframes = document.querySelectorAll('#iframe-container iframe');
+  
+  // Ocultar el contenedor
+  container.style.display = 'none';
+  
+  // Ocultar todos los iframes
+  allIframes.forEach(function(frame) {
+    frame.style.display = 'none';
+  });
+};
+
+// Luego, dentro del event listener DOMContentLoaded, añade:
+document.addEventListener('DOMContentLoaded', function() {
+  // Otras inicializaciones...
+  
+  // Configura el botón para cerrar iframes
+  document.getElementById('close-iframe').addEventListener('click', window.cerrarIframe);
+  
+  // Resto del código...
 });
 

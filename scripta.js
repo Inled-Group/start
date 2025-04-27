@@ -1,5 +1,4 @@
 
-document.addEventListener('DOMContentLoaded', function() {
 
     // Definir los contenidos de los desplegables
     const dropdownData = {
@@ -222,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (localStorage.getItem('darkMode') === 'true') {
       document.body.classList.add('dark-mode');
     }
-  });
+
   
   // Move the toggleDropdown function outside of DOMContentLoaded so it's in global scope
   window.toggleDropdown = function(dropdownId) {
@@ -478,29 +477,79 @@ document.addEventListener('DOMContentLoaded', function() {
     cargarFavoritos();
   }
   
-  // Función para alternar la visualización de iframes de periódicos
   window.toggleIframe = function(iframeId) {
     const container = document.getElementById('iframe-container');
     const iframe = document.getElementById(iframeId);
     const allIframes = document.querySelectorAll('#iframe-container iframe');
-  
-    // Ocultar todos los iframes
-    allIframes.forEach(function(frame) {
-      frame.style.display = 'none';
-    });
-  
-    // Mostrar el contenedor y el iframe seleccionado
-    container.style.display = 'block';
-    iframe.style.display = 'block';
-  
-    // Hacer scroll al iframe
-    container.scrollIntoView({ behavior: 'smooth' });
-  };
-  
-  // Añadir evento para cerrar el iframe
-  document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('close-iframe').addEventListener('click', function() {
-      document.getElementById('iframe-container').style.display = 'none';
-    });
-  });
+    const iframeUrl = document.getElementById('iframe-url');
+    const openNewTabButton = document.getElementById('open-new-tab');
+    const spinner = document.getElementById('spinner');
+    const browserBar = document.getElementById('browser-bar');
+    const closeIframeButton = document.getElementById('close-iframe');
 
+    // Función para cerrar iframe
+    function cerrarIframe() {
+        container.style.display = 'none';
+        browserBar.style.display = 'none';
+        iframeUrl.textContent = 'URL: ';
+        openNewTabButton.onclick = null;
+        spinner.style.display = 'none';
+        allIframes.forEach(frame => {
+            frame.style.display = 'none';
+            frame.removeAttribute('src');
+        });
+    }
+
+    // Cerrar si ya estaba abierto
+    if (iframe.style.display === 'block') {
+        cerrarIframe();
+        return;
+    }
+
+    // Cerrar todos los iframes
+    allIframes.forEach(function(frame) {
+        frame.style.display = 'none';
+        frame.removeAttribute('src');
+    });
+
+    // Mostrar contenedores
+    container.style.display = 'block';
+    browserBar.style.display = 'flex';
+
+    // Definir URL
+    let url = '';
+    switch (iframeId) {
+        case 'miIframe': url = 'https://www.elmundo.es/'; break;
+        case 'miIframe2': url = 'https://elpais.com/'; break;
+        case 'miIframe3': url = 'https://www.abc.es/'; break;
+        case 'miIframe4': url = 'https://www.larazon.es/'; break;
+        case 'miIframe5': url = 'https://www.libertaddigital.com/'; break;
+        case 'miIframe6': url = 'https://www.eldebate.com/'; break;
+    }
+
+    // Spinner visible
+    spinner.style.display = 'block';
+
+    // Mostrar iframe
+    iframe.style.display = 'block';
+    iframe.src = url;
+
+    // Mostrar URL
+    iframeUrl.textContent = url;
+
+    // Función abrir en nueva pestaña
+    openNewTabButton.onclick = function() {
+        window.open(url, '_blank');
+    };
+
+    // Cuando cargue el iframe, ocultar spinner
+    iframe.onload = function() {
+        spinner.style.display = 'none';
+    };
+
+    // Programar cierre con la X
+    closeIframeButton.onclick = cerrarIframe;
+
+    // Scroll hacia arriba
+    container.scrollIntoView({ behavior: 'smooth' });
+};

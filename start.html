@@ -1,37 +1,37 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title id="pageTitle">Start></title>
+  <title>Start</title>
+  <meta charset="utf-8">
+  <meta name="author" content="Start">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="stylesa.css"/>
-  <script src="scripta.js" defer></script>
-  <script src="script2.js" defer></script>
-  <meta charset="utf-8"/>
-  <meta name="author" content="Start>"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0" />
   <script src="https://kit.fontawesome.com/a3d5ef9bfb.js" crossorigin="anonymous"></script>
+  <script src="scripta.js" defer></script>
 </head>
-<a id="top"></a>
+
 <body>
-    <nav id="sticky-nav">
-        <div class="share-container">
-            <button id="share-button"><i class="fa-solid fa-share-nodes"></i>Compartir</button>
-            <div id="share-options" class="share-options">
-                <a href="#" id="share-email"><i class="fa-regular fa-envelope"></i>Correo</a>
-                <a href="#" id="share-whatsapp"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
-                <a href="#" id="share-telegram"><i class="fa-brands fa-telegram"></i>Telegram</a>
-            </div>
-        </div>  
-        <a href="start.html" id="myStart"><span class="material-symbols-rounded">
-            home
-            </span></a>
+
+<nav id="sticky-nav">
+    <div class="share-container">
+        <button id="share-button"><i class="fa-solid fa-share-nodes"></i>Compartir</button>
+        <div id="share-options" class="share-options" style="display: none;">
+            <a href="#" id="share-email"><i class="fa-regular fa-envelope"></i>Correo</a>
+            <a href="#" id="share-whatsapp"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
+            <a href="#" id="share-telegram"><i class="fa-brands fa-telegram"></i>Telegram</a>
+        </div>
+    </div>  
+    <a href="start.html" id="myStart"><span class="material-symbols-rounded">home</span></a>
 
     <div class="search-container">
         <button id="clear-button"><i class="fa-solid fa-trash fa-2xs"></i></button>
         <input type="text" id="search-input" placeholder="Pulsa en la lupa para buscar">
         <button id="search-button"><i class="fa-solid fa-magnifying-glass fa-bounce"></i></button>
-        </div>
-      <div class="search-engines">
+    </div>
+
+    <div class="search-engines">
         <button id="google-button" class="active"><i class="fa-brands fa-google"></i>Google</button>
         <button id="bing-button"><i class="fa-brands fa-microsoft"></i>Bing</button>
         <button id="brave-button"><i class="fa-brands fa-brave"></i>Brave</button>
@@ -39,370 +39,249 @@
         <button id="qwant-button"><i class="fa-solid fa-q"></i>Qwant</button>
         <button id="ecosia-button"><i class="fa-solid fa-tree"></i>Ecosia</button>
         <button id="wikipedia-button"><i class="fa-brands fa-wikipedia-w"></i>Wikipedia</button>
-      </div>
     </div>
-    </nav>
-    <p>Ajustar a 90% tamaño pag.</p>
-    <main>
-        
-    <div class="dropdown-container">
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown1')" class="dropbtn"><i class="fa-regular fa-envelope"></i>Correo</button>
-            <div id="dropdown1" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
+</nav>
+
+<main>
+  <!-- Dropdowns -->
+  <div class="dropdown-container">
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown1')" class="dropbtn"><i class="fa-regular fa-envelope"></i>Correo</button>
+        <div id="dropdown1" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
         </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown2')" class="dropbtn"><i class="fa-solid fa-file-word"></i>Documentos</button>
-            <div id="dropdown2" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown2')" class="dropbtn"><i class="fa-solid fa-file-word"></i>Documentos</button>
+        <div id="dropdown2" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
         </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown34')" class="dropbtn"><i class="fa-solid fa-file-pdf"></i>PDF</button>
-            <div id="dropdown34" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown34')" class="dropbtn"><i class="fa-solid fa-file-pdf"></i>PDF</button>
+        <div id="dropdown34" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
         </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown3')" class="dropbtn"><i class="fa-solid fa-file-powerpoint"></i>Presentaciones</button>
-            <div id="dropdown3" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown3')" class="dropbtn"><i class="fa-solid fa-file-powerpoint"></i>Presentaciones</button>
+        <div id="dropdown3" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
         </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown4')" class="dropbtn"><i class="fa-solid fa-file-excel"></i>Hojas de cálculo</button>
-            <div id="dropdown4" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown4')" class="dropbtn"><i class="fa-solid fa-file-excel"></i>Hojas de cálculo</button>
+        <div id="dropdown4" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
         </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown5')" class="dropbtn"><i class="fa-solid fa-list-check"></i>Formularios</button>
-            <div id="dropdown5" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown5')" class="dropbtn"><i class="fa-solid fa-list-check"></i>Formularios</button>
+        <div id="dropdown5" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
         </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown6')" class="dropbtn"><i class="fa-solid fa-cloud"></i>Nube</button>
-            <div id="dropdown6" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown6')" class="dropbtn"><i class="fa-solid fa-cloud"></i>Nube</button>
+        <div id="dropdown6" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
         </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown7')" class="dropbtn"><i class="fa-solid fa-message"></i>IA</button>
-            <div id="dropdown7" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown7')" class="dropbtn"><i class="fa-solid fa-message"></i>IA</button>
+        <div id="dropdown7" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
         </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown10')" class="dropbtn"><i class="fa-solid fa-location-dot"></i>Mapas</button>
-            <div id="dropdown10" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown10')" class="dropbtn"><i class="fa-solid fa-location-dot"></i>Mapas</button>
+        <div id="dropdown10" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
         </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown11')" class="dropbtn"><span class="material-symbols-rounded">
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown11')" class="dropbtn"><span class="material-symbols-rounded">
 shopping_bag
 </span>Tiendas de aplicaciones</button>
-            <div id="dropdown11" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
+        <div id="dropdown11" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
         </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown12')" class="dropbtn"><i class="fa-solid fa-phone"></i>Videollamadas</button>
-            <div id="dropdown12" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown14')" class="dropbtn"><span class="material-symbols-rounded">
-                forum
-                </span>Chat</button>
-            <div id="dropdown14" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown13')" class="dropbtn"><i class="fa-regular fa-calendar"></i>Calendarios</button>
-            <div id="dropdown13" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown15')" class="dropbtn"><i class="fa-brands fa-youtube"></i>YouTube</button>
-            <div id="dropdown15" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown16')" class="dropbtn"><i class="fa-brands fa-spotify"></i>Música en línea</button>
-            <div id="dropdown16" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown30')" class="dropbtn"><i class="fa-solid fa-graduation-cap"></i>Estudio</button>
-            <div id="dropdown30" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown17')" class="dropbtn"><i class="fa-solid fa-newspaper"></i>Noticias</button>
-            <div id="dropdown17" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown18')" class="dropbtn"><i class="fa-solid fa-tv"></i>TV</button>
-            <div id="dropdown18" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown19')" class="dropbtn"><i class="fa-solid fa-radio"></i>Radio</button>
-            <div id="dropdown19" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown20')" class="dropbtn"><i class="fa-regular fa-thumbs-up"></i>RRSS</button>
-            <div id="dropdown20" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown22')" class="dropbtn"><i class="fa-solid fa-book"></i>Diccionario</button>
-            <div id="dropdown22" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown24')" class="dropbtn"><i class="fa-solid fa-image"></i>Imágenes</button>
-            <div id="dropdown24" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown25')" class="dropbtn"><i class="fa-solid fa-wifi"></i>WiFi</button>
-            <div id="dropdown25" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown26')" class="dropbtn"><i class="fa-solid fa-shield-halved"></i>VirusTotal</button>
-            <div id="dropdown26" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown27')" class="dropbtn"><i class="fa-solid fa-language"></i>Traductor</button>
-            <div id="dropdown27" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown31')" class="dropbtn"><i class="fa-regular fa-file-video"></i>Creación de vídeo</button>
-            <div id="dropdown31" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown32')" class="dropbtn"><i class="fa-brands fa-wordpress-simple"></i>Crear webs</button>
-            <div id="dropdown32" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown8')" class="dropbtn"><span class="material-symbols-rounded">
-                rocket_launch
-                </span>Más</button>
-            <div id="dropdown8" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onclick="toggleDropdown('dropdown29')" class="dropbtn">Sitios de Inled Group</button>
-            <div id="dropdown29" class="dropdown-content">
-                <!-- Botones se generarán dinámicamente -->
-            </div>
-        </div>
-       
     </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown12')" class="dropbtn"><i class="fa-solid fa-phone"></i>Videollamadas</button>
+        <div id="dropdown12" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown14')" class="dropbtn"><span class="material-symbols-rounded">
+            forum
+            </span>Chat</button>
+        <div id="dropdown14" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown13')" class="dropbtn"><i class="fa-regular fa-calendar"></i>Calendarios</button>
+        <div id="dropdown13" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown15')" class="dropbtn"><i class="fa-brands fa-youtube"></i>YouTube</button>
+        <div id="dropdown15" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown16')" class="dropbtn"><i class="fa-brands fa-spotify"></i>Música en línea</button>
+        <div id="dropdown16" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown30')" class="dropbtn"><i class="fa-solid fa-graduation-cap"></i>Estudio</button>
+        <div id="dropdown30" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown17')" class="dropbtn"><i class="fa-solid fa-newspaper"></i>Noticias</button>
+        <div id="dropdown17" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown18')" class="dropbtn"><i class="fa-solid fa-tv"></i>TV</button>
+        <div id="dropdown18" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown19')" class="dropbtn"><i class="fa-solid fa-radio"></i>Radio</button>
+        <div id="dropdown19" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown20')" class="dropbtn"><i class="fa-regular fa-thumbs-up"></i>RRSS</button>
+        <div id="dropdown20" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown22')" class="dropbtn"><i class="fa-solid fa-book"></i>Diccionario</button>
+        <div id="dropdown22" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown24')" class="dropbtn"><i class="fa-solid fa-image"></i>Imágenes</button>
+        <div id="dropdown24" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown25')" class="dropbtn"><i class="fa-solid fa-wifi"></i>WiFi</button>
+        <div id="dropdown25" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown26')" class="dropbtn"><i class="fa-solid fa-shield-halved"></i>VirusTotal</button>
+        <div id="dropdown26" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown27')" class="dropbtn"><i class="fa-solid fa-language"></i>Traductor</button>
+        <div id="dropdown27" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown31')" class="dropbtn"><i class="fa-regular fa-file-video"></i>Creación de vídeo</button>
+        <div id="dropdown31" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown32')" class="dropbtn"><i class="fa-brands fa-wordpress-simple"></i>Crear webs</button>
+        <div id="dropdown32" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown8')" class="dropbtn"><span class="material-symbols-rounded">
+            rocket_launch
+            </span>Más</button>
+        <div id="dropdown8" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown29')" class="dropbtn">Sitios de Inled Group</button>
+        <div id="dropdown29" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+  </div>
 </main>
+
+<!-- Favoritos -->
 <div class="favoritos">
     <h1>Mis Favoritos</h1>
     <input type="text" id="nombre-favorito" class="input" placeholder="Nombre del favorito">
     <input type="text" id="url-favorito" class="input" placeholder="URL del favorito">
     <button onclick="guardarFavorito()" class="basic-button"><i class="fa-regular fa-star"></i>Guardar Favorito</button>
-    <button onclick="activarModoEliminacion()" class="basic-button-red">Eliminar</button>
-    <p id="mensaje-eliminacion">Modo eliminación activado: clic en un favorito para eliminarlo. Duración del modo eliminación: 10s.</p>
+    <button onclick="toggleEliminarFavoritos()" class="basic-button-red">Eliminar</button>
+    <p id="mensaje-eliminacion" style="display: none;">Modo eliminación activado: clic en un favorito para eliminarlo. Duración: 10s.</p>
     <ul id="favoritos-lista"></ul>
 </div>
 
- 
-
+<!-- Botones de iframes -->
 <nav id="sticky-nav2">
-<button onclick="toggleIframe('miIframe')", class="load-memory-saturation">El Mundo</button>
-<button onclick="toggleIframe('miIframe2')", class="load-memory-saturation">El País</button>
-<button onclick="toggleIframe('miIframe3')", class="load-memory-saturation">ABC</button>
-<button onclick="toggleIframe('miIframe4')", class="load-memory-saturation">La Razón</button>
-<button onclick="toggleIframe('miIframe5')", class="load-memory-saturation">Libertad Digital</button>
-<button onclick="toggleIframe('miIframe6')", class="load-memory-saturation">El Debate</button>
-<button id="toggle-dark-mode" class="load-memory-saturation">Modo Oscuro</button>
-
+  <button onclick="toggleIframe('miIframe')">El Mundo</button>
+  <button onclick="toggleIframe('miIframe2')">El País</button>
+  <button onclick="toggleIframe('miIframe3')">ABC</button>
+  <button onclick="toggleIframe('miIframe4')">La Razón</button>
+  <button onclick="toggleIframe('miIframe5')">Libertad Digital</button>
+  <button onclick="toggleIframe('miIframe6')">El Debate</button>
+  <button id="toggle-dark-mode">Modo Oscuro</button>
 </nav>
-<div class="contenedor">
-    <img src="ad1.gif" alt="AdPulse" class="imagen">
+<!-- Barra de navegador tipo Chrome -->
+<div id="browser-bar">
+    <div id="iframe-url">
+        URL: 
+    </div>
+    <button id="open-new-tab" style="background: none; border: none; cursor: pointer;" title="Abrir en nueva pestaña">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </button>
 </div>
-<div id="spinner" class="spinner-container" style="display: none;">
-    <div class="spinner"></div>
-  </div>
-  
-  
-<iframe id="miIframe" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
-<iframe id="miIframe2" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
-<iframe id="miIframe3" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
-<iframe id="miIframe4" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
-<iframe id="miIframe5" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
-<iframe id="miIframe6" src="" framedorder="0" sandbox allowfullscreen width="1400" height="2000" style="display: none;"></iframe>
+
+<!-- Contenedor de iframe -->
+<div id="iframe-container">
+    <button id="close-iframe"  title="Cerrar iframe">&times;</button>
+
+    <div id="spinner" >
+        <div></div>
+    </div>
+
+    <iframe id="miIframe" src="" frameborder="0" sandbox allowfullscreen width="90%" height="800px"></iframe>
+    <iframe id="miIframe2" src="" frameborder="0" sandbox allowfullscreen width="90%" height="800px"></iframe>
+    <iframe id="miIframe3" src="" frameborder="0" sandbox allowfullscreen width="90%" height="800px"></iframe>
+    <iframe id="miIframe4" src="" frameborder="0" sandbox allowfullscreen width="90%" height="800px"></iframe>
+    <iframe id="miIframe5" src="" frameborder="0" sandbox allowfullscreen width="90%" height="800px"></iframe>
+    <iframe id="miIframe6" src="" frameborder="0" sandbox allowfullscreen width="90%" height="800px"></iframe>
+</div>
+
+
+<!-- Publicidad -->
+<div class="contenedor">
+  <img src="ad1.gif" alt="AdPulse" class="imagen">
+</div>
+
+
 </body>
-
-<script>
-function toggleIframe(iframeId) {
-    const spinner = document.getElementById("spinner");
-    const iframe = document.getElementById(iframeId);
-    const allIframes = document.querySelectorAll("iframe");
-
-    // Si el iframe ya está visible, lo ocultamos y cancelamos la carga
-    if (iframe.style.display === 'block') {
-        iframe.style.display = 'none';
-        iframe.removeAttribute('src');
-        spinner.style.display = 'none';
-        return; // Salir de la función
-    }
-
-    // Ocultar otros iframes y limpiar su src
-    allIframes.forEach((el) => {
-        if (el !== iframe) {
-            el.style.display = 'none';
-            el.removeAttribute('src');
-        }
-    });
-
-    // Mostrar spinner y cargar iframe
-    spinner.style.display = 'block';
-    iframe.style.display = 'block';
-    iframe.src = getIframeSrc(iframeId);
-
-    iframe.onload = () => {
-        spinner.style.display = 'none';
-    };
-}
-
-
-    function getIframeSrc(iframeId) {
-        switch (iframeId) {
-            case 'miIframe':
-                return 'https://www.elmundo.es/';
-            case 'miIframe2':
-                return 'https://elpais.com/';
-            case 'miIframe3':
-                return 'https://www.abc.es/';
-            case 'miIframe4':
-                return 'https://www.larazon.es/';
-            case 'miIframe5':
-                return 'https://www.libertaddigital.com/';
-            case 'miIframe6':
-                return 'https://www.eldebate.com/';
-            default:
-                return '';
-        }
-    }
-    const linkElement = document.createElement('link');
-
-
-</script>
-<script>
-    const toggleButton = document.getElementById('toggle-dark-mode');
-
-    // Verifica si hay un estado guardado en localStorage
-    const isDarkMode = localStorage.getItem('dark-mode') === 'enabled';
-
-    // Aplica el modo oscuro si está activado
-    if (isDarkMode) {
-        document.body.classList.add('dark-mode');
-        toggleButton.textContent = 'Modo Claro';
-    }
-
-    toggleButton.addEventListener('click', () => {
-        // Alternar la clase 'dark-mode' en el body
-        document.body.classList.toggle('dark-mode');
-
-        if (document.body.classList.contains('dark-mode')) {
-            // Guardar preferencia en localStorage
-            localStorage.setItem('dark-mode', 'enabled');
-            toggleButton.textContent = 'Modo Claro';
-        } else {
-            // Eliminar preferencia de localStorage
-            localStorage.setItem('dark-mode', 'disabled');
-            toggleButton.textContent = 'Modo Oscuro';
-        }
-    });
-    let modoEliminacion = false;
-
-function cargarFavoritos() {
-    const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-    const lista = document.getElementById('favoritos-lista');
-    lista.innerHTML = '';
-    favoritos.forEach((favorito, index) => {
-        const nuevoFavorito = document.createElement('li');
-        const enlace = document.createElement('a');
-        enlace.href = favorito.url;
-        enlace.target = '_blank';
-        enlace.textContent = favorito.nombre;
-        enlace.onclick = (e) => {
-            if (modoEliminacion) {
-                e.preventDefault(); // Prevenir que el enlace abra la URL
-                eliminarFavorito(index);
-            }
-        };
-        nuevoFavorito.appendChild(enlace);
-        lista.appendChild(nuevoFavorito);
-    });
-}
-
-function guardarFavorito() {
-    const nombre = document.getElementById('nombre-favorito').value;
-    const url = document.getElementById('url-favorito').value;
-    if (nombre && url) {
-        const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-        favoritos.push({ nombre, url });
-        localStorage.setItem('favoritos', JSON.stringify(favoritos));
-        cargarFavoritos();
-    }
-}
-
-function eliminarFavorito(index) {
-    const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-    favoritos.splice(index, 1);
-    localStorage.setItem('favoritos', JSON.stringify(favoritos));
-    cargarFavoritos();
-}
-
-function activarModoEliminacion() {
-    modoEliminacion = true;
-    document.getElementById('favoritos-lista').classList.add('eliminacion-activa');
-    document.getElementById('mensaje-eliminacion').style.display = 'block';
-    setTimeout(() => {
-        modoEliminacion = false;
-        document.getElementById('favoritos-lista').classList.remove('eliminacion-activa');
-        document.getElementById('mensaje-eliminacion').style.display = 'none';
-    }, 10000); // 10 segundos
-}
-
-window.onload = cargarFavoritos;
-</script>
-
-    
 </html>
