@@ -406,6 +406,10 @@ body.dark-mode {
   background-color: #333;
   color: #ddd;
 }
+.dark-mode .search-engines button.active {
+  background-color: var(--primary-color);
+  color: white;
+}
 
 .dark-mode .dropdown-container {
   background-color: rgba(30, 30, 30, 0.5);
@@ -426,6 +430,10 @@ body.dark-mode {
 .dark-mode .dropdown-content button:hover {
   background-color: #444;
 }
+.dark-mode .dropdown-content button {
+  color: #fff;
+}
+
 
 .dark-mode .share-options {
   background-color: #1e1e1e;
@@ -487,6 +495,7 @@ footer {
   text-align: center;
   width: 100%;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
 }
 footer a {
   color: #000000;
@@ -496,6 +505,26 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
+.dark-mode footer {
+  background-color: #333;
+  color: #ffffff;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode footer a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.dark-mode footer a:hover {
+  text-decoration: underline;
+}
+
 .logo {
   position: absolute;
   top: 1rem;
@@ -610,3 +639,39 @@ footer a:hover {
         margin-left: 25px;
         margin-top: 3px;
     }
+    .dark-mode #cookie-consent-banner {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      box-shadow: 0 2px 20px rgba(255, 255, 255, 0.1);
+    }
+    
+    .dark-mode #cookie-consent-banner h3 {
+      color: #ffffff;
+    }
+    
+    .dark-mode #cookie-consent-banner p,
+    .dark-mode .cookie-option-description {
+      color: #cccccc;
+    }
+    
+    .dark-mode .cookie-decline {
+      background-color: #333;
+      color: #fff;
+    }
+    
+    .dark-mode .cookie-decline:hover {
+      background-color: #444;
+    }
+    
+    .dark-mode .cookie-settings-toggle {
+      color: #4ca3ff;
+    }
+    
+    .dark-mode .cookie-option label {
+      color: #ffffff;
+    }
+    
+    .dark-mode .cookie-settings {
+      border-top: 1px solid #444;
+    }
+    
