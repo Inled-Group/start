@@ -10,13 +10,6 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/a3d5ef9bfb.js" crossorigin="anonymous" defer></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0">
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "rd7l3sh1hn");
-</script>
 </head>
 <body>
   <!-- Barra de navegación superior -->
@@ -339,7 +332,141 @@
       <a href="https://www.inled.es" target="_blank">Grupo Inled</a>
       <a href="https://www.inled.es/politica-de-privacidad" target="_blank">Política de Privacidad</a>
   </footer>
+
+      <!-- Banner de consentimiento de cookies -->
+      <div id="cookie-consent-banner">
+        <h3>Configuración de privacidad</h3>
+        <p>Utilizamos cookies para mejorar tu experiencia en nuestro sitio web. Esto incluye cookies de análisis de Microsoft Clarity que nos ayudan a entender cómo interactúas con nuestro sitio.</p>
+        
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-decline" id="decline-cookies">Rechazar</button>
+            <button class="cookie-btn cookie-accept" id="accept-cookies">Aceptar</button>
+        </div>
+        
+        <div class="cookie-settings-toggle" id="toggle-settings">Mostrar configuración detallada</div>
+        
+        <div class="cookie-settings" id="cookie-settings">
+            <div class="cookie-option">
+                <input type="checkbox" id="necessary-cookies" checked disabled>
+                <label for="necessary-cookies">Cookies necesarias</label>
+            </div>
+            <div class="cookie-option-description">Estas cookies son esenciales para el funcionamiento del sitio web y no pueden ser desactivadas.</div>
+            
+            <div class="cookie-option">
+                <input type="checkbox" id="clarity-cookies">
+                <label for="clarity-cookies">Microsoft Clarity</label>
+            </div>
+            <div class="cookie-option-description">Permite el análisis de comportamiento de usuarios para mejorar la experiencia del sitio web.</div>
+        </div>
+    </div>
   </body>
 
   <script src="script.js" defer></script>
+  <script>
+    // Función para establecer una cookie
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + value + expires + "; path=/; SameSite=Lax";
+    }
+
+    // Función para obtener una cookie
+    function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    // Iniciar Microsoft Clarity solo si el usuario ha dado su consentimiento
+    function initClarity() {
+        if (getCookie('clarity_consent') === 'yes') {
+            // Aquí va el código de inicialización de Microsoft Clarity
+            (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "rd7l3sh1hn");
+            console.log("Microsoft Clarity inicializado"); // Para propósitos de demostración
+        }
+    }
+
+    // Mostrar el banner si no hay consentimiento guardado
+    function checkCookieConsent() {
+        const banner = document.getElementById('cookie-consent-banner');
+        const hasConsent = getCookie('cookie_consent');
+        
+        if (hasConsent === null) {
+            // No hay consentimiento guardado, mostrar el banner
+            banner.style.display = 'block';
+        } else {
+            // Ya hay una decisión guardada
+            if (getCookie('clarity_consent') === 'yes') {
+                // Si consintió Clarity, iniciarlo
+                initClarity();
+            }
+        }
+    }
+
+    // Manejador para aceptar todas las cookies
+    document.getElementById('accept-cookies').addEventListener('click', function() {
+        setCookie('cookie_consent', 'accepted', 365);
+        setCookie('clarity_consent', 'yes', 365);
+        document.getElementById('cookie-consent-banner').style.display = 'none';
+        initClarity();
+    });
+
+    // Manejador para rechazar las cookies no esenciales
+    document.getElementById('decline-cookies').addEventListener('click', function() {
+        setCookie('cookie_consent', 'declined', 365);
+        setCookie('clarity_consent', 'no', 365);
+        document.getElementById('cookie-consent-banner').style.display = 'none';
+    });
+
+    // Manejador para mostrar/ocultar configuración detallada
+    document.getElementById('toggle-settings').addEventListener('click', function() {
+        const settings = document.getElementById('cookie-settings');
+        const toggle = document.getElementById('toggle-settings');
+        
+        if (settings.style.display === 'block') {
+            settings.style.display = 'none';
+            toggle.textContent = 'Mostrar configuración detallada';
+        } else {
+            settings.style.display = 'block';
+            toggle.textContent = 'Ocultar configuración detallada';
+        }
+    });
+
+    // Manejar el checkbox de Microsoft Clarity
+    document.getElementById('clarity-cookies').addEventListener('change', function() {
+        // Si se cambia desde la configuración detallada, actualizar solo las cookies de Clarity
+        document.getElementById('clarity-cookies').checked ? 
+            setCookie('clarity_consent', 'yes', 365) : 
+            setCookie('clarity_consent', 'no', 365);
+        
+        // Actualizar estado de Clarity basado en la nueva selección
+        if (document.getElementById('clarity-cookies').checked) {
+            initClarity();
+        }
+    });
+
+    // Verificar el estado guardado al cargar la página
+    window.addEventListener('load', function() {
+        checkCookieConsent();
+        
+        // Actualizar el checkbox según el consentimiento guardado
+        const clarityConsent = getCookie('clarity_consent');
+        if (clarityConsent === 'yes') {
+            document.getElementById('clarity-cookies').checked = true;
+        }
+    });
+</script>
   </html>
