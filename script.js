@@ -5,15 +5,18 @@ const dropdownData = {
         { text: "Gmail", url: "https://mail.google.com/" },
         { text: "Outlook", url: "https://outlook.live.com/mail/0/" },
         { text: "Yahoo! Mail", url: "https://es.mail.yahoo.com" },
+        { text: "AOL Mail", url: "https://login.aol.com/?src=mail" },
         { text: "App de correo predeterminada de tu sistema", url: "mailto:" }
     ],
     dropdown2: [
         { text: "Documentos de Google", url: "https://docs.google.com/document/u/0/" },
-        { text: "Word", url: "https://m365.cloud.microsoft/launch/word?auth=1" }
+        { text: "Word", url: "https://m365.cloud.microsoft/launch/word?auth=1" },
+        { text: "WPS Docs", url: "https://docs.wps.com/launch/docs" }
     ],
     dropdown3: [
         { text: "Presentaciones de Google", url: "https://docs.google.com/presentation/u/0/" },
         { text: "PowerPoint", url: "https://m365.cloud.microsoft/launch/powerpoint?auth=1" },
+        { text: "WPS Slides", url: "https://docs.wps.com/launch/slides" },
         { text: "Canva", url: "https://www.canva.com/" },
         { text: "Adobe Express", url: "https://new.express.adobe.com/" },
         { text: "Genially", url: "https://genially.com/es/" },
@@ -21,16 +24,19 @@ const dropdownData = {
     ],
     dropdown4: [
         { text: "Hojas de cálculo de Google", url: "https://docs.google.com/spreadsheets/u/0/" },
-        { text: "Excel", url: "https://m365.cloud.microsoft/launch/excel?auth=1" }
+        { text: "Excel", url: "https://m365.cloud.microsoft/launch/excel?auth=1" },
+        { text: "WPS Sheets", url: "https://docs.wps.com/launch/sheets" }
     ],
     dropdown5: [
         { text: "Formularios de Google", url: "https://docs.google.com/forms/u/0/" },
-        { text: "Forms", url: "https://forms.office.com/" }
+        { text: "Microsoft Forms", url: "https://forms.office.com/" },
+        { text: "WPS Forms", url: "https://docs.wps.com/launch/forms" }
     ],
     dropdown6: [
         { text: "Google Drive", url: "https://drive.google.com/drive/" },
         { text: "OneDrive", url: "https://onedrive.live.com/" },
-        { text: "Dropbox", url: "https://www.dropbox.com/es_ES/" }
+        { text: "Dropbox", url: "https://www.dropbox.com/es_ES/" },
+        { text: "WPS Drive", url: "https://docs.wps.com/drive?lang=es-ES" }
     ],
     dropdown7: [
         { text: "ChatGPT", url: "https://chatgpt.com" },
@@ -78,6 +84,7 @@ dropdown12: [
     { text: "Microsoft Teams", url: "https://teams.live.com/v2/" },
     { text: "Skype", url: " https://web.skype.com/" },
     { text: "Zoom", url: "https://zoom.us/es" },
+    { text: "Jitsi Meet", url: "https://meet.jit.si/" },
     { text: "Brave Talk", url: "https://talk.brave.com/" }
 ],
 dropdown13: [
@@ -112,11 +119,14 @@ dropdown17: [
     { text: "Libertad Digital", url: "https://www.libertaddigital.com/" },
 ],
 dropdown18: [
+    { text: "TDT Channels (TV Online)", url: "https://play.tdtchannels.com/television/" },
+    { text: "Tivify (TV Online)", url: "https://www.tivify.tv/inicio" },
     { text: "RTVE", url: "https://www.rtve.es/play/" },
     { text: "Atresplayer", url: "https://www.atresplayer.com/" },
     { text: "Mediaset", url: "https://www.mitele.es/directo/" }
 ],
 dropdown19: [
+  { text: "RadioPlayer", url: "https://radioplayerespana.es/player.php" },
     { text: "RNE", url: "https://www.rtve.es/play/radio/rne/" },
     { text: "COPE", url: "https://www.cope.es/" },
     { text: "Onda Cero", url: "https://www.ondacero.es/" },
@@ -304,6 +314,9 @@ window.buscar = function() {
     case 'ecosia':
       url = 'https://www.ecosia.org/search?q=' + encodeURIComponent(termino);
       break;
+    case 'privacywall':
+      url = 'https://www.privacywall.org/search/secure?q=' + encodeURIComponent(termino);
+      break;
     case 'wikipedia':
       url = 'https://es.wikipedia.org/wiki/Special:Search?search=' + encodeURIComponent(termino);
       break;
@@ -337,6 +350,10 @@ document.getElementById('qwant-button').addEventListener('click', function() {
 
 document.getElementById('ecosia-button').addEventListener('click', function() {
   setActiveSearchEngine('ecosia', this);
+});
+
+document.getElementById('privacywall-button').addEventListener('click', function() {
+  setActiveSearchEngine('privacywall', this);
 });
 
 document.getElementById('wikipedia-button').addEventListener('click', function() {

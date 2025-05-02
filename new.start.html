@@ -43,6 +43,7 @@
         <button id="duckduckgo-button">DuckDuckGo</button>
         <button id="qwant-button"><i class="fa-solid fa-q"></i> Qwant</button>
         <button id="ecosia-button"><i class="fa-solid fa-tree"></i> Ecosia</button>
+        <button id="privacywall-button"><i class="fa-solid fa-shield"></i> Privacy Wall</button>
         <button id="wikipedia-button"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia</button>
       </div>
     </div>
@@ -260,14 +261,20 @@
     <section id="news-section">
       <h2 class="news-title">Periódicos</h2>
       <div class="news-grid">
-        <div class="news-item" onclick="toggleIframe('miIframe')">
-          <img src="https://www.elmundo.es/apple-touch-icon-precomposed.png" alt="El Mundo" class="news-logo">
-          <div class="news-name">El Mundo</div>
+
+        <div class="news-item" onclick="toggleIframe('miIframe7')">
+          <img src="https://www.eldiario.es/apple-touch-icon.png" alt="El Diario" class="news-logo">
+          <div class="news-name">El Diario</div>
         </div>
         
         <div class="news-item" onclick="toggleIframe('miIframe2')">
           <img src="https://static.elpais.com/dist/resources/images/favicon.ico" alt="El País" class="news-logo">
           <div class="news-name">El País</div>
+        </div>
+
+        <div class="news-item" onclick="toggleIframe('miIframe')">
+          <img src="https://www.elmundo.es/apple-touch-icon-precomposed.png" alt="El Mundo" class="news-logo">
+          <div class="news-name">El Mundo</div>
         </div>
         
         <div class="news-item" onclick="toggleIframe('miIframe3')">
@@ -296,6 +303,7 @@
       <button id="close-iframe" class="basic-button-red" style="position: absolute; right: 20px; z-index: 1001;">
         <i class="fa-solid fa-xmark"></i> Cerrar
       </button>
+      <iframe id="miIframe7" src="about:blank" data-src="https://www.eldiario.es/" style="width: 100%; height: 600px; display: none; border: none;"></iframe>
       <iframe id="miIframe" src="about:blank" data-src="https://www.elmundo.es" style="width: 100%; height: 600px; display: none; border: none;"></iframe>
       <iframe id="miIframe2" src="about:blank" data-src="https://www.elpais.com" style="width: 100%; height: 600px; display: none; border: none;"></iframe>
       <iframe id="miIframe3" src="about:blank" data-src="https://www.abc.es" style="width: 100%; height: 600px; display: none; border: none;"></iframe>
