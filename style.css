@@ -500,7 +500,7 @@ footer a:hover {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  max-width: 100px;
+  max-width: 6vw;
 }
 @media (max-width: 600px) {
   .logo {
