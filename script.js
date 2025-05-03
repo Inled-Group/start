@@ -317,6 +317,9 @@ window.buscar = function() {
     case 'privacywall':
       url = 'https://www.privacywall.org/search/secure?q=' + encodeURIComponent(termino);
       break;
+    case 'aol':
+      url = 'https://search.aol.com/aol/search?q=' + encodeURIComponent(termino);
+      break;
     case 'wikipedia':
       url = 'https://es.wikipedia.org/wiki/Special:Search?search=' + encodeURIComponent(termino);
       break;
@@ -354,6 +357,10 @@ document.getElementById('ecosia-button').addEventListener('click', function() {
 
 document.getElementById('privacywall-button').addEventListener('click', function() {
   setActiveSearchEngine('privacywall', this);
+});
+
+document.getElementById('aol-button').addEventListener('click', function() {
+  setActiveSearchEngine('aol', this);
 });
 
 document.getElementById('wikipedia-button').addEventListener('click', function() {
