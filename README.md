@@ -18,13 +18,13 @@ Unimos todos los servicios de ofimática y mucho más: la competencia en un úni
 
 ## Lea periódicos a un clic 📰
 Literalmente a un clic. Puede leer los periódicos nacionales más famosos:
+- El Diario
 - El País
 - El Mundo
 - ABC
 - La Razón
 - Libertad Digital
 - El Debate 
-- La Vanguardia
 
 ## Cargue y descargue iconos, ahorre más memoria
 Para mejorar el rendimiento de Start se ha añadido una función que carga los iconos **solo** cuando el usuario lo desea.  
@@ -32,6 +32,10 @@ Así aseguramos la velocidad del servicio y que la memoria de su ordenador no se
 
 ## Modo oscuro 🌙
 Por que sabemos que pasar mucho tiempo delante de un foco de luz blanca no es lo mejor para nuestros ojos.
+
+## ¡Novedad! Temas de acento 🖌️
+Escoge entre 5 temas de acento para hacer de Start una experiencia más personalizada
+
 
 ## Difunde la voz 🗣️
 Si te está gustando la experiencia con Start difúndelo mandándoselo a tus conocidos.  

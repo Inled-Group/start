@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
     
+/*Tema clásico*/
 :root {
   --primary-color: #4CAF50;
   --secondary-color: #41fd29;
@@ -7,6 +8,67 @@
   --text-color: #333;
   --border-radius: 20px;
 }
+
+/* Tema Marea */
+.theme-blue {
+  --primary-color: #2196F3;
+  --secondary-color: #03A9F4;
+  --background-color: #e3f2fd;
+  --text-color: #0d47a1;
+}
+
+/* Tema Morado */
+.theme-purple {
+  --primary-color: #9C27B0;
+  --secondary-color: #BA68C8;
+  --background-color: #f3e5f5;
+  --text-color: #4a148c;
+}
+
+/* Tema Canonical */
+.theme-orange {
+  --primary-color: #ED764D;
+  --secondary-color: #F08763;
+  --background-color: #F6BBA6;
+  --text-color: #E95420;
+}
+
+/* Tema Amor */
+.theme-red {
+  --primary-color: #F44336;
+  --secondary-color: #EF5350;
+  --background-color: #ffebee;
+  --text-color: #b71c1c;
+}
+
+.color-preview {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+}
+
+.color-preview.default {
+  background-color: #4CAF50;
+}
+
+.color-preview.blue {
+  background-color: #2196F3;
+}
+
+.color-preview.purple {
+  background-color: #9C27B0;
+}
+
+.color-preview.orange {
+  background-color: #FF9800;
+}
+
+.color-preview.red {
+  background-color: #F44336;
+}  
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -683,4 +745,81 @@ footer a:hover {
     .dark-mode .cookie-settings {
       border-top: 1px solid #444;
     }
+    .share-container, .theme-container {
+      position: relative;
+      display: inline-block; /* Asegura que los contenedores solo ocupen el espacio necesario */
+    }
+
+/* Elimina o modifica esto si existe */
+.theme-container {
+  position: static; /* Cambia de absolute a static */
+  top: auto;
+  left: auto;
+}
+
+.button-group {
+  align-items: center;
+  right: 20px;
+  top: 10px;
+}
     
+    #share-button, #theme-button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    #share-button:hover, #theme-button:hover {
+      background-color: var(--secondary-color);
+    }
+    
+    .share-options, .theme-options {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%; /* Asegura que aparezca justo debajo del botón */
+      margin-top: 5px;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      z-index: 10;
+      min-width: 150px;
+    }
+    
+    .share-options a, .theme-options a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: var(--text-color);
+      transition: background-color 0.3s ease;
+    }
+    
+    .share-options a:hover, .theme-options a:hover {
+      background-color: #f1f1f1;
+      border-radius: 10px;
+    }
+    
+    .theme-option {
+      display: flex;
+      align-items: center;
+    }
+    
+
+    .dark-mode .share-options,
+    .dark-mode .theme-options {
+      background-color: #1e1e1e;
+    }
+    
+    .dark-mode .share-options a,
+    .dark-mode .theme-options a {
+      color: #fff;
+    }
+    
+    .dark-mode .share-options a:hover,
+    .dark-mode .theme-options a:hover {
+      background-color: #333;
+    }

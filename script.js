@@ -175,7 +175,8 @@ dropdown29: [
     { text: "inled.es", url: "http://inled.es" },
     { text: "TEA Friendly", url: "https://teafriendly.inled.es" },
     { text: "DSIGN", url: "https://inled.es/dsign" },
-    { text: "Launch the launcher", url: "https://inled.es/ltl" }
+    { text: "Launch the launcher", url: "https://inled.es/ltl" },
+    { text: "Ayuda", url: "ayuda.html" },
 ],
 dropdown30: [
     { text: "LifeAt", url: "https://lifeat.io" },
@@ -234,12 +235,9 @@ allDropdowns.forEach(function(el) {
 dropdown.classList.toggle('show');
 };
 
-// Inicializar configuraciones cuando el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
-// Verificar si el modo oscuro estaba activado
-if (localStorage.getItem('darkMode') === 'true') {
-document.body.classList.add('dark-mode');
-}
+document.getElementById('toggle-dark-mode').addEventListener('click', function() {
+  const body = document.body;
+
 
 // Cargar el motor de búsqueda preferido del usuario
 const savedEngine = localStorage.getItem('searchEngine') || 'google';
