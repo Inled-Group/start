@@ -92,13 +92,16 @@ body {
   transition: background-color 0.3s ease;
   padding: 8px 0; /* Reducido de 15px a 8px */
   height: auto; /* Ajuste automático en lugar de una altura fija */
+  max-height: 20vh; /* Limita la altura al 20% de la altura visible */
+  overflow-y: hidden; /* Evita scroll vertical dentro del nav */
+
 }
 
 .search-wrapper {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
-  padding: 0; /* Eliminar padding extra */
+  padding: 5px 0; /* Reduce el padding */
 }
 
 .search-container {
@@ -142,11 +145,17 @@ body {
 }
 
 .search-engines {
-  display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 10px;
   margin-top: 10px;
+  display: flex;
+  overflow-x: auto; /* Permite desplazamiento horizontal */
+  flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
+  padding-bottom: 8px; /* Espacio para la barra de desplazamiento */
+  -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+  white-space: nowrap; /* Mantiene los botones en una línea */
+  justify-content: flex-start; /* Alinea desde el inicio en lugar de centro */
+  margin-bottom: 5px; /* Reduce el margen inferior */
 }
 
 .search-engines button {
@@ -157,6 +166,8 @@ body {
   cursor: pointer;
   font-size: 14px;
   transition: all 0.3s ease;
+  flex: 0 0 auto; /* Evita que los botones se estiren */
+  margin-right: 8px; /* Espacio entre botones */
 }
 
 .search-engines button.active {

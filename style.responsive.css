@@ -1,0 +1,76 @@
+@media (max-width: 600px) {
+    #sticky-nav {
+        padding: 5px 0; /* Reduce aún más el padding en móviles */
+        height: auto;
+        max-height: 20%;
+    }
+      
+    .nav-actions {
+        margin-bottom: 5px; /* Reduce el margen inferior */
+    }
+      
+    .search-container input[type=text] {
+        padding: 8px 12px; /* Inputs más pequeños en móviles */
+        width: 75%; /* Asegura que el input ocupe suficiente espacio */
+    }
+      
+    #clear-button, #search-button {
+        padding: 8px 12px; /* Botones más pequeños en móviles */
+    }
+    
+    /* Mejoras para search-engines en móviles */
+    .search-engines {
+        display: block;
+        overflow-x: auto;
+        padding: 5px 0;
+        margin: 5px 0;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        justify-content: flex-start;
+        padding-left: 10px; /* Espacio a la izquierda */
+    }
+    
+    .search-engines button {
+        flex: 0 0 auto;
+        font-size: 12px; /* Reduce el tamaño de fuente */
+        padding: 6px 12px; /* Botones más compactos */
+        margin-right: 6px; /* Espacio más pequeño entre botones */
+    }
+    
+    /* Ocultar la barra de desplazamiento pero mantener la funcionalidad */
+    .search-engines::-webkit-scrollbar {
+        height: 3px;
+    }
+    
+    .search-engines::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 10px;
+    }
+    
+    /* Indica que hay más contenido para desplazarse */
+    .search-engines::after {
+        content: "";
+        padding-right: 10px;
+    }
+      /* Modificación de los dropdowns para dispositivos móviles */
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-content {
+    position: static;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-height: 200px;
+  }
+
+  .logo {
+    display: none;
+  }
+  .share-options, .theme-options {
+    position: static;
+    overflow-y: auto;
+  }
+}

@@ -532,6 +532,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // Configura el botón para cerrar iframes
   document.getElementById('close-iframe').addEventListener('click', window.cerrarIframe);
   
-  // Resto del código...
 });
+//Menú Search Engines
+const toggle = document.getElementById('menu-toggle-search-engines');
+const menu = document.getElementById('search-engines-menu');
 
+toggle.addEventListener('click', () => {
+  toggle.classList.toggle('open');
+  menu.classList.toggle('show');
+});
