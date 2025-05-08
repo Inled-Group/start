@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Start</title>
+  <meta charset="utf-8">
+  <meta name="author" content="Start">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="stylesa.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0" />
+  <script src="https://kit.fontawesome.com/a3d5ef9bfb.js" crossorigin="anonymous"></script>
+  <script src="scripta.js" defer></script>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rd7l3sh1hn");
+</script>
+</head>
+
+<body>
+<div class="page-content">
+<nav id="sticky-nav">
+    <div class="share-container">
+        <button id="share-button"><i class="fa-solid fa-share-nodes"></i>Compartir</button>
+        <div id="share-options" class="share-options" style="display: none;">
+            <a href="#" id="share-email"><i class="fa-regular fa-envelope"></i>Correo</a>
+            <a href="#" id="share-whatsapp"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
+            <a href="#" id="share-telegram"><i class="fa-brands fa-telegram"></i>Telegram</a>
+        </div>
+    </div>  
+    <a href="start.html" id="myStart"><span class="material-symbols-rounded">home</span></a>
+
+    <div class="search-container">
+        <button id="clear-button"><i class="fa-solid fa-trash fa-2xs"></i></button>
+        <input type="text" id="search-input" placeholder="Pulsa en la lupa para buscar">
+        <button id="search-button"><i class="fa-solid fa-magnifying-glass fa-bounce"></i></button>
+    </div>
+
+    <div class="search-engines">
+        <button id="google-button" class="active"><i class="fa-brands fa-google"></i>Google</button>
+        <button id="bing-button"><i class="fa-brands fa-microsoft"></i>Bing</button>
+        <button id="brave-button"><i class="fa-brands fa-brave"></i>Brave</button>
+        <button id="duckduckgo-button">DuckDuckGo</button>
+        <button id="qwant-button"><i class="fa-solid fa-q"></i>Qwant</button>
+        <button id="ecosia-button"><i class="fa-solid fa-tree"></i>Ecosia</button>
+        <button id="wikipedia-button"><i class="fa-brands fa-wikipedia-w"></i>Wikipedia</button>
+    </div>
+</nav>
+
+<main>
+  <!-- Dropdowns -->
+  <div class="dropdown-container">
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown1')" class="dropbtn"><i class="fa-regular fa-envelope"></i>Correo</button>
+        <div id="dropdown1" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown2')" class="dropbtn"><i class="fa-solid fa-file-word"></i>Documentos</button>
+        <div id="dropdown2" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown34')" class="dropbtn"><i class="fa-solid fa-file-pdf"></i>PDF</button>
+        <div id="dropdown34" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown3')" class="dropbtn"><i class="fa-solid fa-file-powerpoint"></i>Presentaciones</button>
+        <div id="dropdown3" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown4')" class="dropbtn"><i class="fa-solid fa-file-excel"></i>Hojas de cálculo</button>
+        <div id="dropdown4" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown5')" class="dropbtn"><i class="fa-solid fa-list-check"></i>Formularios</button>
+        <div id="dropdown5" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown6')" class="dropbtn"><i class="fa-solid fa-cloud"></i>Nube</button>
+        <div id="dropdown6" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown7')" class="dropbtn"><i class="fa-solid fa-message"></i>IA</button>
+        <div id="dropdown7" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown10')" class="dropbtn"><i class="fa-solid fa-location-dot"></i>Mapas</button>
+        <div id="dropdown10" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown11')" class="dropbtn"><span class="material-symbols-rounded">
+shopping_bag
+</span>Tiendas de aplicaciones</button>
+        <div id="dropdown11" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown12')" class="dropbtn"><i class="fa-solid fa-phone"></i>Videollamadas</button>
+        <div id="dropdown12" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown14')" class="dropbtn"><span class="material-symbols-rounded">
+            forum
+            </span>Chat</button>
+        <div id="dropdown14" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown13')" class="dropbtn"><i class="fa-regular fa-calendar"></i>Calendarios</button>
+        <div id="dropdown13" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown15')" class="dropbtn"><i class="fa-brands fa-youtube"></i>YouTube</button>
+        <div id="dropdown15" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown16')" class="dropbtn"><i class="fa-brands fa-spotify"></i>Música en línea</button>
+        <div id="dropdown16" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown30')" class="dropbtn"><i class="fa-solid fa-graduation-cap"></i>Estudio</button>
+        <div id="dropdown30" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown17')" class="dropbtn"><i class="fa-solid fa-newspaper"></i>Noticias</button>
+        <div id="dropdown17" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown18')" class="dropbtn"><i class="fa-solid fa-tv"></i>TV</button>
+        <div id="dropdown18" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown19')" class="dropbtn"><i class="fa-solid fa-radio"></i>Radio</button>
+        <div id="dropdown19" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown20')" class="dropbtn"><i class="fa-regular fa-thumbs-up"></i>RRSS</button>
+        <div id="dropdown20" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown22')" class="dropbtn"><i class="fa-solid fa-book"></i>Diccionario</button>
+        <div id="dropdown22" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown24')" class="dropbtn"><i class="fa-solid fa-image"></i>Imágenes</button>
+        <div id="dropdown24" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown25')" class="dropbtn"><i class="fa-solid fa-wifi"></i>WiFi</button>
+        <div id="dropdown25" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown26')" class="dropbtn"><i class="fa-solid fa-shield-halved"></i>VirusTotal</button>
+        <div id="dropdown26" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown27')" class="dropbtn"><i class="fa-solid fa-language"></i>Traductor</button>
+        <div id="dropdown27" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown31')" class="dropbtn"><i class="fa-regular fa-file-video"></i>Creación de vídeo</button>
+        <div id="dropdown31" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown32')" class="dropbtn"><i class="fa-brands fa-wordpress-simple"></i>Crear webs</button>
+        <div id="dropdown32" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown8')" class="dropbtn"><span class="material-symbols-rounded">
+            rocket_launch
+            </span>Más</button>
+        <div id="dropdown8" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleDropdown('dropdown29')" class="dropbtn">Sitios de Inled Group</button>
+        <div id="dropdown29" class="dropdown-content">
+            <!-- Botones se generarán dinámicamente -->
+        </div>
+    </div>
+  </div>
+</main>
+
+<!-- Favoritos -->
+<div class="favoritos">
+    <h1>Mis Favoritos</h1>
+    <input type="text" id="nombre-favorito" class="input" placeholder="Nombre del favorito">
+    <input type="text" id="url-favorito" class="input" placeholder="URL del favorito">
+    <button onclick="guardarFavorito()" class="basic-button"><i class="fa-regular fa-star"></i>Guardar Favorito</button>
+    <button onclick="toggleEliminarFavoritos()" class="basic-button-red">Eliminar</button>
+    <p id="mensaje-eliminacion" style="display: none;">Modo eliminación activado: clic en un favorito para eliminarlo. Duración: 10s.</p>
+    <ul id="favoritos-lista"></ul>
+</div>
+
+<!-- Botones de iframes -->
+<nav id="sticky-nav2">
+  <button onclick="toggleIframe('miIframe')">El Mundo</button>
+  <button onclick="toggleIframe('miIframe2')">El País</button>
+  <button onclick="toggleIframe('miIframe3')">ABC</button>
+  <button onclick="toggleIframe('miIframe4')">La Razón</button>
+  <button onclick="toggleIframe('miIframe5')">Libertad Digital</button>
+  <button onclick="toggleIframe('miIframe6')">El Debate</button>
+  <button id="toggle-dark-mode">Modo Oscuro</button>
+</nav>
+<!-- Barra de navegador tipo Chrome -->
+<div id="browser-bar">
+    <div id="iframe-url">
+        URL: 
+    </div>
+    <button id="open-new-tab" style="background: none; border: none; cursor: pointer;" title="Abrir en nueva pestaña">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </button>
+</div>
+
+<!-- Contenedor de iframe -->
+<div id="iframe-container">
+    <button id="close-iframe"  title="Cerrar iframe">&times;</button>
+
+    <div id="spinner" >
+        <div></div>
+    </div>
+
+    <iframe id="miIframe" src="" frameborder="0" sandbox allowfullscreen width="90%" height="800px"></iframe>
+    <iframe id="miIframe2" src="" frameborder="0" sandbox allowfullscreen width="90%" height="800px"></iframe>
+    <iframe id="miIframe3" src="" frameborder="0" sandbox allowfullscreen width="90%" height="800px"></iframe>
+    <iframe id="miIframe4" src="" frameborder="0" sandbox allowfullscreen width="90%" height="800px"></iframe>
+    <iframe id="miIframe5" src="" frameborder="0" sandbox allowfullscreen width="90%" height="800px"></iframe>
+    <iframe id="miIframe6" src="" frameborder="0" sandbox allowfullscreen width="90%" height="800px"></iframe>
+</div>
+
+
+<!-- Publicidad -->
+<div class="contenedor">
+  <img src="ad1.gif" alt="AdPulse" class="imagen">
+</div>
+</div>
+
+<div class="update-overlay" id="updateOverlay">
+    <div class="update-modal">
+        <button class="close-btn" id="closeBtn">×</button>
+        <div class="update-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm40-68a8,8,0,0,1-8,8H96a8,8,0,0,1-8-8V96a8,8,0,0,1,16,0v36h56A8,8,0,0,1,168,148Z"></path>
+            </svg>
+        </div>
+        <div class="update-title">Estás usando una versión obsoleta</div>
+        <div class="update-message">
+            Utilizala bajo tu responsabilidad. No se garantiza la compatibilidad ni continuidad de estas versiones
+        </div>
+        <div class="button-group">
+            <button class="btn-update" id="updateBtn">Actualizar ahora</button>
+            <button class="btn-dismiss" id="dismissBtn">Más tarde</button>
+        </div>
+    </div>
+</div>
+<script>
+     // Elementos del DOM
+     const updateOverlay = document.getElementById('updateOverlay');
+        const closeBtn = document.getElementById('closeBtn');
+        const updateBtn = document.getElementById('updateBtn');
+        const dismissBtn = document.getElementById('dismissBtn');
+        const updateModal = document.querySelector('.update-modal');
+
+        // Mostrar la ventana emergente
+        function showUpdateModal() {
+            updateOverlay.classList.add('active');
+        }
+
+        // Ocultar la ventana emergente
+        function hideUpdateModal() {
+            updateOverlay.classList.remove('active');
+        }
+
+        // Comprobar si se debe mostrar la ventana (puedes personalizar esta lógica)
+        function checkForUpdate() {
+
+            
+            // Para esta demostración, siempre mostramos el aviso
+            showUpdateModal();
+        }
+
+        // Event listeners
+        closeBtn.addEventListener('click', hideUpdateModal);
+        
+        dismissBtn.addEventListener('click', hideUpdateModal);
+        
+        updateBtn.addEventListener('click', function() {
+
+            window.location.href = "start.html";
+        });
+
+        // Cerrar al hacer clic fuera de la ventana modal
+        updateOverlay.addEventListener('click', function(event) {
+            if (!updateModal.contains(event.target)) {
+                hideUpdateModal();
+            }
+        });
+
+        // Mostrar automáticamente al cargar la página
+        window.addEventListener('load', checkForUpdate);
+</script>
+
+</body>
+</html>
