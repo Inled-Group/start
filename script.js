@@ -6,12 +6,16 @@ const dropdownData = {
         { text: "Outlook", url: "https://outlook.live.com/mail/0/" },
         { text: "Yahoo! Mail", url: "https://es.mail.yahoo.com" },
         { text: "AOL Mail", url: "https://login.aol.com/?src=mail" },
+        { text: "Proton Mail", url: "https://mail.proton.me/" },
+        { text: "iCloud Mail", url: "https://www.icloud.com/mail/" },
         { text: "App de correo predeterminada de tu sistema", url: "mailto:" }
     ],
     dropdown2: [
         { text: "Documentos de Google", url: "https://docs.google.com/document/u/0/" },
         { text: "Word", url: "https://m365.cloud.microsoft/launch/word?auth=1" },
-        { text: "WPS Docs", url: "https://docs.wps.com/launch/docs" }
+        { text: "WPS Docs", url: "https://docs.wps.com/launch/docs" },
+        { text: "Proton Docs", url: "https://docs.proton.me/" },
+        { text: "iCloud Pages", url: "https://www.icloud.com/pages/" }
     ],
     dropdown3: [
         { text: "Presentaciones de Google", url: "https://docs.google.com/presentation/u/0/" },
@@ -20,12 +24,14 @@ const dropdownData = {
         { text: "Canva", url: "https://www.canva.com/" },
         { text: "Adobe Express", url: "https://new.express.adobe.com/" },
         { text: "Genially", url: "https://genially.com/es/" },
-        { text: "Prezi", url: "https://prezi.com/es/" }
+        { text: "Prezi", url: "https://prezi.com/es/" },
+        { text: "iCloud Keynote", url: "https://www.icloud.com/keynote/" }
     ],
     dropdown4: [
         { text: "Hojas de cálculo de Google", url: "https://docs.google.com/spreadsheets/u/0/" },
         { text: "Excel", url: "https://m365.cloud.microsoft/launch/excel?auth=1" },
-        { text: "WPS Sheets", url: "https://docs.wps.com/launch/sheets" }
+        { text: "WPS Sheets", url: "https://docs.wps.com/launch/sheets" },
+        { text: "iCloud Numbers", url: "https://www.icloud.com/numbers/" }
     ],
     dropdown5: [
         { text: "Formularios de Google", url: "https://docs.google.com/forms/u/0/" },
@@ -36,7 +42,9 @@ const dropdownData = {
         { text: "Google Drive", url: "https://drive.google.com/drive/" },
         { text: "OneDrive", url: "https://onedrive.live.com/" },
         { text: "Dropbox", url: "https://www.dropbox.com/es_ES/" },
-        { text: "WPS Drive", url: "https://docs.wps.com/drive?lang=es-ES" }
+        { text: "WPS Drive", url: "https://docs.wps.com/drive?lang=es-ES" },
+        { text: "Proton Drive", url: "https://drive.proton.me/" },
+        { text: "iCloud Drive", url: "https://www.icloud.com/iclouddrive/" }
     ],
     dropdown7: [
         { text: "ChatGPT", url: "https://chatgpt.com" },
@@ -89,7 +97,9 @@ dropdown12: [
 ],
 dropdown13: [
     { text: "Google Calendar", url: "https://calendar.google.com/" },
-    { text: "Calendario de Outlook", url: "https://outlook.live.com/calendar/" }
+    { text: "Calendario de Outlook", url: "https://outlook.live.com/calendar/" },
+    { text: "Proton Calendar", url: "https://calendar.proton.me/" },
+    { text: "iCloud Calendar", url: "https://www.icloud.com/calendar/" }
 ],
 dropdown14: [
     { text: "WhatsApp Web", url: "https://web.whatsapp.com/" },

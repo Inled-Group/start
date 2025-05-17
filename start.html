@@ -31,16 +31,6 @@
       </div>
     </div>
 
-    <div class="theme-container">
-      <button id="theme-button"><i class="fa-solid fa-palette"></i> Temas</button>
-      <div id="theme-options" class="theme-options">
-        <a href="#" id="theme-default" class="theme-option"><span class="color-preview default"></span>Clásico</a>
-        <a href="#" id="theme-blue" class="theme-option"><span class="color-preview blue"></span>Marea</a>
-        <a href="#" id="theme-purple" class="theme-option"><span class="color-preview purple"></span>Morado</a>
-        <a href="#" id="theme-orange" class="theme-option"><span class="color-preview orange"></span>Canonical</a>
-        <a href="#" id="theme-red" class="theme-option"><span class="color-preview red"></span>Amor</a>
-      </div>
-    </div>
     </div>
     
     <div class="search-wrapper">
@@ -484,86 +474,6 @@
         if (clarityConsent === 'yes') {
             document.getElementById('clarity-cookies').checked = true;
         }
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-        // Botón de temas
-        const themeButton = document.getElementById('theme-button');
-        const themeOptions = document.getElementById('theme-options');
-        
-        // Mostrar/ocultar opciones de temas
-        themeButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            themeOptions.style.display = themeOptions.style.display === 'block' ? 'none' : 'block';
-        });
-        
-        // Cerrar el menú de temas al hacer clic fuera
-        document.addEventListener('click', function(e) {
-            if (!themeButton.contains(e.target) && !themeOptions.contains(e.target)) {
-                themeOptions.style.display = 'none';
-            }
-        });
-        
-        // Aplicar tema almacenado en localStorage si existe
-        const savedTheme = localStorage.getItem('startTheme');
-        if (savedTheme) {
-            document.body.className = savedTheme.includes('dark-mode') ? 
-                savedTheme : savedTheme.replace('theme-', '');
-            if (savedTheme.includes('theme-')) {
-                document.body.classList.add('theme-' + savedTheme.split('-')[1]);
-            }
-        }
-        
-        // Opciones de temas
-        const themeDefault = document.getElementById('theme-default');
-        const themeBlue = document.getElementById('theme-blue');
-        const themePurple = document.getElementById('theme-purple');
-        const themeOrange = document.getElementById('theme-orange');
-        const themeRed = document.getElementById('theme-red');
-        
-        // Función para aplicar tema
-        function applyTheme(themeName) {
-            // Remover todos los temas anteriores
-            document.body.classList.remove('theme-blue', 'theme-purple', 'theme-orange', 'theme-red');
-            
-            // Aplicar el nuevo tema si no es el predeterminado
-            if (themeName !== 'default') {
-                document.body.classList.add('theme-' + themeName);
-            }
-            
-            // Guardar la preferencia
-            const currentClasses = document.body.className;
-            localStorage.setItem('startTheme', currentClasses);
-            
-            // Ocultar el menú después de seleccionar
-            themeOptions.style.display = 'none';
-        }
-        
-        // Event listeners para cada tema
-        themeDefault.addEventListener('click', function(e) {
-            e.preventDefault();
-            applyTheme('default');
-        });
-        
-        themeBlue.addEventListener('click', function(e) {
-            e.preventDefault();
-            applyTheme('blue');
-        });
-        
-        themePurple.addEventListener('click', function(e) {
-            e.preventDefault();
-            applyTheme('purple');
-        });
-        
-        themeOrange.addEventListener('click', function(e) {
-            e.preventDefault();
-            applyTheme('orange');
-        });
-        
-        themeRed.addEventListener('click', function(e) {
-            e.preventDefault();
-            applyTheme('red');
-        });
     });
 
     // Verificar el estado guardado al cargar la página
