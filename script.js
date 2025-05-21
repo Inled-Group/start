@@ -310,6 +310,11 @@ window.buscar = function() {
     case 'bing':
       url = 'https://www.bing.com/search?q=' + encodeURIComponent(termino);
       break;
+
+    case 'startpage':
+      url = 'https://www.startpage.com/search?q=' + encodeURIComponent(termino);
+      break;
+
     case 'brave':
       url = 'https://search.brave.com/search?q=' + encodeURIComponent(termino);
       break;
@@ -345,6 +350,10 @@ document.getElementById('google-button').addEventListener('click', function() {
 
 document.getElementById('bing-button').addEventListener('click', function() {
   setActiveSearchEngine('bing', this);
+});
+
+document.getElementById('startpage-button').addEventListener('click', function() {
+  setActiveSearchEngine('startpage', this);
 });
 
 document.getElementById('brave-button').addEventListener('click', function() {
@@ -551,3 +560,4 @@ toggle.addEventListener('click', () => {
   toggle.classList.toggle('open');
   menu.classList.toggle('show');
 });
+
