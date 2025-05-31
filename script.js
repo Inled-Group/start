@@ -206,6 +206,10 @@ dropdown34: [
   
 };
 document.addEventListener('DOMContentLoaded', function () {
+  // Hacer búsqueda al pulsar Enter
+  document.getElementById('search-input')?.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') buscar();
+  });
   // Botón de limpiar campo de búsqueda
   document.getElementById('clear-button')?.addEventListener('click', () => {
     const input = document.getElementById('search-input');
