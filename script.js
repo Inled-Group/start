@@ -205,8 +205,35 @@ dropdown34: [
 ],
   
 };
-
 document.addEventListener('DOMContentLoaded', function () {
+  // Botón de limpiar campo de búsqueda
+  document.getElementById('clear-button')?.addEventListener('click', () => {
+    const input = document.getElementById('search-input');
+    if (input) input.value = '';
+  });
+
+  // Botón de compartir
+  document.getElementById('share-button')?.addEventListener('click', () => {
+    const shareOptions = document.getElementById('share-options');
+    if (shareOptions) {
+      shareOptions.style.display = (shareOptions.style.display === 'block') ? 'none' : 'block';
+    }
+  });
+
+  document.getElementById('share-email')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.location.href = 'mailto:?subject=Visita%20Start>&body=' + encodeURIComponent(window.location.href);
+  });
+
+  document.getElementById('share-whatsapp')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open('https://wa.me/?text=' + encodeURIComponent('Visita esta página: ' + window.location.href), '_blank');
+  });
+
+  document.getElementById('share-telegram')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open('https://t.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent('Visita esta página'), '_blank');
+  });
   // Inicializar motores de búsqueda
   initializeSearchEngineSelector();
 
@@ -281,6 +308,14 @@ function buscar() {
 }
 
 function initializeSearchEngineSelector() {
+  const selectorWrapper = document.querySelector('.search-engine-selector');
+  if (selectorWrapper && !document.getElementById('selector-lupa-icon')) {
+    const lupaIcon = document.createElement('i');
+    lupaIcon.id = 'selector-lupa-icon';
+    lupaIcon.className = 'fa fa-magnifying-glass';
+    lupaIcon.style.marginRight = '5px';
+    selectorWrapper.insertBefore(lupaIcon, selectorWrapper.firstChild);
+  }
   const dropdown = document.getElementById('search-engine-dropdown');
   const currentEngineButton = document.getElementById('current-engine-button');
   const iconSpan = document.getElementById('current-engine-icon');
