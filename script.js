@@ -206,358 +206,211 @@ dropdown34: [
   
 };
 
+document.addEventListener('DOMContentLoaded', function () {
+  // Inicializar motores de búsqueda
+  initializeSearchEngineSelector();
 
-  // Cargar datos en los dropdowns
+  // Activar botón de búsqueda
+  document.getElementById('search-button')?.addEventListener('click', buscar);
+
+  // Activar modo oscuro si está en localStorage
+  const dark = localStorage.getItem('darkMode') === 'true';
+  if (dark) document.body.classList.add('dark-mode');
+
+  // Activar botón cerrar iframe
+  document.getElementById('close-iframe')?.addEventListener('click', window.cerrarIframe);
+
+  // Activar menú de motores
+  const toggle = document.getElementById('menu-toggle-search-engines');
+  const menu = document.getElementById('search-engines-menu');
+  toggle?.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    menu.classList.toggle('show');
+  });
+
+  // Botón de modo oscuro
+  document.getElementById('toggle-dark-mode')?.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+  });
+
+  // Evento global para cerrar desplegables al hacer clic fuera
+  document.addEventListener('click', function (event) {
+    if (!event.target.matches('.dropbtn')) {
+      document.querySelectorAll('.dropdown-content').forEach(dd => dd.classList.remove('show'));
+    }
+  });
+
+  // Cargar favoritos
+  cargarFavoritos();
+
+  // Rellenar los desplegables
+  cargarDropdowns();
+});
+
+window.toggleDropdown = function (dropdownId) {
+  document.querySelectorAll('.dropdown-content').forEach(dd => {
+    if (dd.id !== dropdownId) dd.classList.remove('show');
+  });
+  const current = document.getElementById(dropdownId);
+  if (current) current.classList.toggle('show');
+};
+
+function buscar() {
+  const input = document.getElementById('search-input');
+  if (!input) return;
+  const termino = input.value.trim();
+  if (termino === '') return;
+
+  const buscadorActual = localStorage.getItem('searchEngine') || 'google';
+  const motores = {
+    google: `https://www.google.com/search?q=${encodeURIComponent(termino)}`,
+    bing: `https://www.bing.com/search?q=${encodeURIComponent(termino)}`,
+    startpage: `https://www.startpage.com/search?q=${encodeURIComponent(termino)}`,
+    brave: `https://search.brave.com/search?q=${encodeURIComponent(termino)}`,
+    duckduckgo: `https://duckduckgo.com/?q=${encodeURIComponent(termino)}`,
+    qwant: `https://www.qwant.com/?q=${encodeURIComponent(termino)}`,
+    ecosia: `https://www.ecosia.org/search?q=${encodeURIComponent(termino)}`,
+    privacywall: `https://www.privacywall.org/search/secure?q=${encodeURIComponent(termino)}`,
+    aol: `https://search.aol.com/aol/search?q=${encodeURIComponent(termino)}`,
+    wikipedia: `https://es.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(termino)}`,
+  };
+
+  const url = motores[buscadorActual] || motores.google;
+  window.open(url, '_blank');
+}
+
+function initializeSearchEngineSelector() {
+  const dropdown = document.getElementById('search-engine-dropdown');
+  const currentEngineButton = document.getElementById('current-engine-button');
+  const iconSpan = document.getElementById('current-engine-icon');
+  const searchEngines = [
+    { id: 'google', name: 'Google', icon: 'fa-google' },
+    { id: 'bing', name: 'Bing', icon: 'fa-bing' },
+    { id: 'startpage', name: 'Startpage', icon: 'fa-search' },
+    { id: 'brave', name: 'Brave', icon: 'fa-fire' },
+    { id: 'duckduckgo', name: 'DuckDuckGo', icon: 'fa-duck' },
+    { id: 'qwant', name: 'Qwant', icon: 'fa-search' },
+    { id: 'ecosia', name: 'Ecosia', icon: 'fa-leaf' },
+    { id: 'privacywall', name: 'PrivacyWall', icon: 'fa-shield-halved' },
+    { id: 'aol', name: 'AOL', icon: 'fa-a' },
+    { id: 'wikipedia', name: 'Wikipedia', icon: 'fa-wikipedia-w' },
+  ];
+
+  if (!dropdown || !currentEngineButton) return;
+  dropdown.innerHTML = '';
+
+  const saved = localStorage.getItem('searchEngine') || 'google';
+  searchEngines.forEach(engine => {
+    const button = document.createElement('button');
+    button.innerHTML = `<i class="fa ${engine.icon}"></i> <span>${engine.name}</span>`;
+    if (engine.id === saved) button.classList.add('active');
+    button.addEventListener('click', () => {
+      localStorage.setItem('searchEngine', engine.id);
+      if (iconSpan) iconSpan.className = 'fa ' + engine.icon;
+      dropdown.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      dropdown.classList.remove('show');
+    });
+    dropdown.appendChild(button);
+  });
+
+  const found = searchEngines.find(e => e.id === saved);
+  if (found && iconSpan) iconSpan.className = 'fa ' + found.icon;
+
+  currentEngineButton.addEventListener('click', e => {
+    e.stopPropagation();
+    dropdown.classList.toggle('show');
+  });
+
+  window.addEventListener('click', e => {
+    if (!e.target.closest('.search-engine-selector')) {
+      dropdown.classList.remove('show');
+    }
+  });
+}
+
+function cargarDropdowns() {
+  if (typeof dropdownData === 'undefined') return;
   Object.keys(dropdownData).forEach(dropdownId => {
     const dropdown = document.getElementById(dropdownId);
     if (dropdown) {
       dropdownData[dropdownId].forEach(item => {
         const button = document.createElement('button');
-        button.textContent = item.text; // Usar item.text en lugar de item.name
-        button.onclick = function() {
+        button.textContent = item.text;
+        button.onclick = function () {
           window.open(item.url, '_blank');
         };
         dropdown.appendChild(button);
       });
     }
   });
-
-window.toggleDropdown = function(dropdownId) {
-  const dropdown = document.getElementById(dropdownId);
-  const allDropdowns = document.querySelectorAll('.dropdown-content');
-
-// Cerrar los dropdowns si se hace clic fuera de ellos
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    const dropdowns = document.querySelectorAll('.dropdown-content');
-    dropdowns.forEach(function(dropdown) {
-      if (dropdown.classList.contains('show')) {
-        dropdown.classList.remove('show');
-      }
-    });
-  }
-};
-allDropdowns.forEach(function(el) {
-  if (el.id !== dropdownId) {
-    el.classList.remove('show');
-  }
-});
-dropdown.classList.toggle('show');
-};
-
-document.getElementById('toggle-dark-mode').addEventListener('click', function() {
-  const body = document.body;
-
-
-// Cargar el motor de búsqueda preferido del usuario
-const savedEngine = localStorage.getItem('searchEngine') || 'google';
-buscadorActual = savedEngine;
-
-// Aplicar la clase active al botón correspondiente
-document.querySelectorAll('.search-engines button').forEach(function(btn) {
-btn.classList.remove('active');
-// Identifica qué botón corresponde al motor guardado
-if (btn.id === savedEngine + '-button') {
-btn.classList.add('active');
-}
-});
-
-// Cargar favoritos guardados
-cargarFavoritos();
-});
-
-// Alternar modo oscuro
-document.getElementById('toggle-dark-mode').addEventListener('click', function() {
-  document.body.classList.toggle('dark-mode');
-  localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-});
-
-// Compartir la página
-document.getElementById('share-button').addEventListener('click', function() {
-  document.getElementById('share-options').style.display = 
-    document.getElementById('share-options').style.display === 'block' ? 'none' : 'block';
-});
-
-// Opciones de compartir
-document.getElementById('share-email').addEventListener('click', function(e) {
-  e.preventDefault();
-  window.location.href = 'mailto:?subject=Visita%20Start>&body=Échale%20un%20vistazo%20a%20esta%20página%20de%20inicio:%20' + encodeURIComponent(window.location.href);
-});
-
-document.getElementById('share-whatsapp').addEventListener('click', function(e) {
-  e.preventDefault();
-  window.open('https://wa.me/?text=' + encodeURIComponent('Échale un vistazo a esta página de inicio: ' + window.location.href), '_blank');
-});
-
-document.getElementById('share-telegram').addEventListener('click', function(e) {
-  e.preventDefault();
-  window.open('https://t.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent('Échale un vistazo a esta página de inicio'), '_blank');
-});
-
-// Funcionalidad de búsqueda
-let buscadorActual = 'google';
-
-// Función para realizar la búsqueda
-window.buscar = function() {
-  const termino = document.getElementById('search-input').value;
-  if (termino.trim() === '') return;
-  
-  let url;
-  switch (buscadorActual) {
-    case 'google':
-      url = 'https://www.google.com/search?q=' + encodeURIComponent(termino);
-      break;
-    case 'bing':
-      url = 'https://www.bing.com/search?q=' + encodeURIComponent(termino);
-      break;
-
-    case 'startpage':
-      url = 'https://www.startpage.com/search?q=' + encodeURIComponent(termino);
-      break;
-
-    case 'brave':
-      url = 'https://search.brave.com/search?q=' + encodeURIComponent(termino);
-      break;
-    case 'duckduckgo':
-      url = 'https://duckduckgo.com/?q=' + encodeURIComponent(termino);
-      break;
-    case 'qwant':
-      url = 'https://www.qwant.com/?q=' + encodeURIComponent(termino);
-      break;
-    case 'ecosia':
-      url = 'https://www.ecosia.org/search?q=' + encodeURIComponent(termino);
-      break;
-    case 'privacywall':
-      url = 'https://www.privacywall.org/search/secure?q=' + encodeURIComponent(termino);
-      break;
-    case 'aol':
-      url = 'https://search.aol.com/aol/search?q=' + encodeURIComponent(termino);
-      break;
-    case 'wikipedia':
-      url = 'https://es.wikipedia.org/wiki/Special:Search?search=' + encodeURIComponent(termino);
-      break;
-    default:
-      url = 'https://www.google.com/search?q=' + encodeURIComponent(termino);
-  }
-  
-  window.open(url, '_blank');
-};
-
-// Botones de motores de búsqueda
-document.getElementById('google-button').addEventListener('click', function() {
-  setActiveSearchEngine('google', this);
-});
-
-document.getElementById('bing-button').addEventListener('click', function() {
-  setActiveSearchEngine('bing', this);
-});
-
-document.getElementById('startpage-button').addEventListener('click', function() {
-  setActiveSearchEngine('startpage', this);
-});
-
-document.getElementById('brave-button').addEventListener('click', function() {
-  setActiveSearchEngine('brave', this);
-});
-
-document.getElementById('duckduckgo-button').addEventListener('click', function() {
-  setActiveSearchEngine('duckduckgo', this);
-});
-
-document.getElementById('qwant-button').addEventListener('click', function() {
-  setActiveSearchEngine('qwant', this);
-});
-
-document.getElementById('ecosia-button').addEventListener('click', function() {
-  setActiveSearchEngine('ecosia', this);
-});
-
-document.getElementById('privacywall-button').addEventListener('click', function() {
-  setActiveSearchEngine('privacywall', this);
-});
-
-document.getElementById('aol-button').addEventListener('click', function() {
-  setActiveSearchEngine('aol', this);
-});
-
-document.getElementById('wikipedia-button').addEventListener('click', function() {
-  setActiveSearchEngine('wikipedia', this);
-});
-
-// Función para establecer el motor de búsqueda activo
-function setActiveSearchEngine(engine, button) {
-buscadorActual = engine;
-
-// Quitar clase activa de todos los botones
-document.querySelectorAll('.search-engines button').forEach(function(btn) {
-btn.classList.remove('active');
-});
-
-// Añadir clase activa al botón seleccionado
-button.classList.add('active');
-
-// Guardar la preferencia del usuario
-localStorage.setItem('searchEngine', engine);
-}
-
-//Event Listener que detecta que se está pulsando el botón de buscar o la tecla Enter
-document.getElementById('search-button').addEventListener('click', window.buscar);
-
-// También deberías manejar la tecla Enter en el input:
-document.getElementById('search-input').addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') {
-    window.buscar();
-  }
-});
-
-// Gestión de favoritos
-window.guardarFavorito = function() {
-  const nombre = document.getElementById('nombre-favorito').value.trim();
-  const url = document.getElementById('url-favorito').value.trim();
-  
-  if (nombre === '' || url === '') {
-    alert('Por favor, rellena tanto el nombre como la URL del favorito.');
-    return;
-  }
-  
-  if (!url.startsWith('http://') && !url.startsWith('https://')) {
-    const urlCorregida = 'https://' + url;
-    document.getElementById('url-favorito').value = urlCorregida;
-  }
-  
-  // Obtener favoritos actuales
-  const favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
-  
-  // Añadir nuevo favorito
-  favoritos.push({
-    nombre: nombre,
-    url: document.getElementById('url-favorito').value
-  });
-  
-  // Guardar en localStorage
-  localStorage.setItem('favoritos', JSON.stringify(favoritos));
-  
-  // Limpiar campos
-  document.getElementById('nombre-favorito').value = '';
-  document.getElementById('url-favorito').value = '';
-  
-  // Actualizar la lista de favoritos
-  cargarFavoritos();
 }
 
 function cargarFavoritos() {
-  const favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
   const lista = document.getElementById('favoritos-lista');
-  
-  // Limpiar lista actual
+  if (!lista) return;
+  const favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
   lista.innerHTML = '';
-  
-  // Mostrar cada favorito
-  favoritos.forEach(function(favorito) {
+  favoritos.forEach(f => {
     const li = document.createElement('li');
     const a = document.createElement('a');
-    a.href = favorito.url;
+    a.href = f.url;
+    a.textContent = f.nombre;
     a.target = '_blank';
-    a.textContent = favorito.nombre;
-    
-    // Añadir evento para eliminación
-    li.addEventListener('click', function(e) {
+    li.appendChild(a);
+    li.addEventListener('click', function (e) {
       if (lista.classList.contains('eliminacion-activa')) {
         e.preventDefault();
-        eliminarFavorito(favorito);
+        eliminarFavorito(f);
       }
     });
-    
-    li.appendChild(a);
     lista.appendChild(li);
   });
 }
 
-window.toggleEliminarFavoritos = function() {
-  const lista = document.getElementById('favoritos-lista');
-  const mensaje = document.getElementById('mensaje-eliminacion');
-  
-  lista.classList.toggle('eliminacion-activa');
-  
-  if (lista.classList.contains('eliminacion-activa')) {
-    mensaje.style.display = 'block';
-  } else {
-    mensaje.style.display = 'none';
-  }
-}
-
-function eliminarFavorito(favorito) {
+function eliminarFavorito(fav) {
   const favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
-  
-  // Filtrar el favorito a eliminar
-  const nuevosFavoritos = favoritos.filter(function(f) {
-    return f.nombre !== favorito.nombre || f.url !== favorito.url;
-  });
-  
-  // Guardar en localStorage
-  localStorage.setItem('favoritos', JSON.stringify(nuevosFavoritos));
-  
-  // Actualizar la lista
+  const nuevos = favoritos.filter(f => f.url !== fav.url || f.nombre !== fav.nombre);
+  localStorage.setItem('favoritos', JSON.stringify(nuevos));
   cargarFavoritos();
 }
 
-// Función para alternar la visualización de iframes de periódicos
-// Función para alternar la visualización de iframes de periódicos con carga perezosa
-window.toggleIframe = function(iframeId) {
-  const container = document.getElementById('iframe-container');
+window.guardarFavorito = function () {
+  const nombre = document.getElementById('nombre-favorito').value.trim();
+  let url = document.getElementById('url-favorito').value.trim();
+  if (!nombre || !url) return alert('Rellena ambos campos');
+  if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+
+  const favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
+  favoritos.push({ nombre, url });
+  localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  document.getElementById('nombre-favorito').value = '';
+  document.getElementById('url-favorito').value = '';
+  cargarFavoritos();
+};
+
+window.toggleEliminarFavoritos = function () {
+  const lista = document.getElementById('favoritos-lista');
+  const mensaje = document.getElementById('mensaje-eliminacion');
+  lista.classList.toggle('eliminacion-activa');
+  mensaje.style.display = lista.classList.contains('eliminacion-activa') ? 'block' : 'none';
+};
+
+window.toggleIframe = function (iframeId) {
+  const cont = document.getElementById('iframe-container');
+  const iframes = cont.querySelectorAll('iframe');
+  iframes.forEach(f => f.style.display = 'none');
   const iframe = document.getElementById(iframeId);
-  const allIframes = document.querySelectorAll('#iframe-container iframe');
-
-  // Ocultar todos los iframes
-  allIframes.forEach(function(frame) {
-    frame.style.display = 'none';
-    // No limpiamos el src para preservar el contenido si ya fue cargado
-  });
-
-  // Cargar el contenido solo si no se ha cargado antes (usando data-src)
-  if (iframe.getAttribute('src') === 'about:blank' || !iframe.getAttribute('src')) {
-    // Obtener la URL real del atributo data-src
-    const realSrc = iframe.getAttribute('data-src');
-    if (realSrc) {
-      iframe.setAttribute('src', realSrc);
-    }
-  }
-
-  // Mostrar el contenedor y el iframe seleccionado
-  container.style.display = 'block';
+  if (!iframe) return;
+  if (!iframe.src || iframe.src === 'about:blank') iframe.src = iframe.dataset.src;
   iframe.style.display = 'block';
-
-  // Hacer scroll al iframe
-  container.scrollIntoView({ behavior: 'smooth' });
-};
-// Agregar esta función a las funciones globales
-window.cerrarIframe = function() {
-  const container = document.getElementById('iframe-container');
-  const allIframes = document.querySelectorAll('#iframe-container iframe');
-  
-  // Ocultar el contenedor
-  container.style.display = 'none';
-  
-  // Ocultar todos los iframes
-  allIframes.forEach(function(frame) {
-    frame.style.display = 'none';
-  });
+  cont.style.display = 'block';
+  cont.scrollIntoView({ behavior: 'smooth' });
 };
 
-// Luego, dentro del event listener DOMContentLoaded, añade:
-document.addEventListener('DOMContentLoaded', function() {
-  // Otras inicializaciones...
-  
-  // Configura el botón para cerrar iframes
-  document.getElementById('close-iframe').addEventListener('click', window.cerrarIframe);
-  
-});
-//Menú Search Engines
-const toggle = document.getElementById('menu-toggle-search-engines');
-const menu = document.getElementById('search-engines-menu');
-
-toggle.addEventListener('click', () => {
-  toggle.classList.toggle('open');
-  menu.classList.toggle('show');
-});
-
+window.cerrarIframe = function () {
+  const cont = document.getElementById('iframe-container');
+  cont.style.display = 'none';
+  cont.querySelectorAll('iframe').forEach(f => f.style.display = 'none');
+};
