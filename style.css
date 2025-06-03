@@ -73,7 +73,7 @@
   width: 100%;
   padding: 0.75rem 1rem;
   border: none;
-  background: transparent;
+  background-color: var(--white);
   color: inherit;
   text-align: left;
   cursor: pointer;
