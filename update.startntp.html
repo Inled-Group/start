@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Update StartNTP</title>
+  <meta charset="utf-8">
+  <meta name="author" content="Start">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="stylesa.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0" />
+  <script src="https://kit.fontawesome.com/a3d5ef9bfb.js" crossorigin="anonymous"></script>
+  <script src="scripta.js" defer></script>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rd7l3sh1hn");
+</script>
+</head>
+
+<body>
+
+<div class="update-overlay" id="updateOverlay">
+    <div class="update-modal">
+        <button class="close-btn" id="closeBtn">×</button>
+        <div class="update-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm40-68a8,8,0,0,1-8,8H96a8,8,0,0,1-8-8V96a8,8,0,0,1,16,0v36h56A8,8,0,0,1,168,148Z"></path>
+            </svg>
+        </div>
+        <div class="update-title">StartNTP necesita actualizarse</div>
+        <div class="update-message">
+            Las actualizaciones son necesarias para garantizar la mejora y seguridad.
+        </div>
+        <div class="button-group">
+            <button class="btn-update" id="updateBtn">Actualizar ahora</button>
+            <button class="btn-dismiss" id="dismissBtn">Más tarde</button>
+        </div>
+    </div>
+</div>
+<script>
+     // Elementos del DOM
+     const updateOverlay = document.getElementById('updateOverlay');
+        const closeBtn = document.getElementById('closeBtn');
+        const updateBtn = document.getElementById('updateBtn');
+        const dismissBtn = document.getElementById('dismissBtn');
+        const updateModal = document.querySelector('.update-modal');
+
+        // Mostrar la ventana emergente
+        function showUpdateModal() {
+            updateOverlay.classList.add('active');
+        }
+
+        // Ocultar la ventana emergente
+        function hideUpdateModal() {
+            updateOverlay.classList.remove('active');
+        }
+
+        // Comprobar si se debe mostrar la ventana (puedes personalizar esta lógica)
+        function checkForUpdate() {
+
+            
+            // Para esta demostración, siempre mostramos el aviso
+            showUpdateModal();
+        }
+
+        // Event listeners
+        closeBtn.addEventListener('click', hideUpdateModal);
+        
+        dismissBtn.addEventListener('click', hideUpdateModal);
+        
+        updateBtn.addEventListener('click', function() {
+
+            window.location.href = "howto.startntp.html";
+        });
+
+        // Cerrar al hacer clic fuera de la ventana modal
+        updateOverlay.addEventListener('click', function(event) {
+            if (!updateModal.contains(event.target)) {
+                hideUpdateModal();
+            }
+        });
+
+        // Mostrar automáticamente al cargar la página
+        window.addEventListener('load', checkForUpdate);
+</script>
+
+</body>
+</html>

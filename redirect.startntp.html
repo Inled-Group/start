@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "rd7l3sh1hn");
+    </script>
+    <title>Cargando Start></title>
+    <style>
+        /* Estilos para centrar el spinner */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilos del spinner */
+        .spinner {
+            border: 8px solid #f3f3f3; /* Gris claro */
+            border-top: 8px solid #3498db; /* Azul */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Animación del spinner */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Estilo del mensaje */
+        .message {
+            position: absolute;
+            top: 70%;
+            text-align: center;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Spinner -->
+    <div class="spinner"></div>
+    
+    <!-- Mensaje de redirección -->
+    <div class="message">Estamos comprobando actualizaciones</div>
+
+    <!-- Script para redireccionar después de X segundos -->
+    <script>
+        setTimeout(function() {
+            window.location.href = "start.html"; // Cambiar esta URL por la página de destino
+        }, 1); // A saber que 1000 milisegundos = 1 segundos
+    </script>
+</body>
+</html>
+

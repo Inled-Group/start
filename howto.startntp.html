@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title id="pageTitle">Descargar e instalar | Start NTP</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="utf-8"/>
+  <meta name="author" content="Start>"/>
+  <meta name="description" content="Descargar e instalar Start NTP es sencillo gracias a las detalladas instrucciones."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css"/>
+    <script src="https://kit.fontawesome.com/4bf0ac964c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #656565 0%, #ffffff 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+  
+    </style>
+</head>
+<body>
+    <div class="container-ntp">
+        <h1 class="h1-ntp">Instalar actualizaciones</h1>
+        
+        <div class="download-section-ntp">
+            <h2>Descarga Automática</h2>
+            <p>La descarga del archivo ZIP comenzará automáticamente. Si no comienza, haz clic en el botón de abajo.</p>
+            <a href="https://github.com/Inled-Group/start.newtab.chrome/archive/refs/heads/main.zip" 
+               class="download-btn-ntp" id="downloadBtn">
+               <i class="fa-solid fa-cloud-arrow-down"></i>Descargar ZIP
+            </a>
+            <div id="downloadStatus" class="status-ntp loading-ntp" style="display: none;">
+                <i class="fa-solid fa-cloud-arrow-down"></i>Iniciando descarga...
+            </div>
+        </div>
+
+        <div class="warning-ntp">
+            <strong>Importante:</strong> Esta extensión se instalará en modo desarrollador. Chrome puede mostrar advertencias sobre extensiones no verificadas. <br>
+            Si quieres asegurarte de que nuestra extensión es segura, <a href="https://www.virustotal.com/gui/file/e8a660ee6c97327323cf332020c838a27c0ed971fa3f91a07ebb14e10b17dbc2?nocache=1">accede al reporte de seguridad de Virustotal</a>
+        </div>
+
+        <div class="steps-ntp">
+            <div class="step-ntp">
+                <h3>Descargar y Extraer</h3>
+                <p>Una vez descargado el archivo ZIP, extráelo en la carpeta que quieras. Recuerda la ubicación de esta carpeta.</p>
+            </div>
+
+            <div class="step-ntp">
+                <h3>Abrir el Navegador y Acceder a Extensiones</h3>
+                <p>Abre el navegador y ve a:</p>
+                <div class="code-ntp">chrome://extensions/</div>
+                <p>O ve a <strong>Menú → Extensiones → Gestionar extensiones</strong></p>
+            </div>
+
+            <div class="step-ntp">
+                <h3>Activar Modo Desarrollador</h3>
+                <p>En la esquina superior derecha de la página de extensiones, activa el <strong>"Modo de desarrollador"</strong> haciendo clic en el interruptor.</p>
+            </div>
+
+            <div class="step-ntp">
+                <h3>Cargar Extensión Descomprimida</h3>
+                <p>Haz clic en el botón <strong>"Cargar descomprimida"</strong> que hay en una barra que aparecerá al activar el modo desarrollador.</p>
+            </div>
+
+            <div class="step-ntp">
+                <h3>Seleccionar Carpeta</h3>
+                <p>Navega hasta la carpeta donde extrajiste el archivo ZIP y selecciona la carpeta que contiene los archivos de la extensión.</p>
+            </div>
+
+            <div class="step-ntp">
+                <h3>Confirmar Instalación</h3>
+                <p>Haz clic en <strong>"Seleccionar"</strong> o <strong>"Abrir"</strong>. La extensión se instalará y aparecerá en tu lista de extensiones.</p>
+            </div>
+        </div>
+
+        <div class="success-ntp">
+            <strong>✅ ¡Listo!</strong> Tu extensión ya está instalada y lista para usar. Puedes anclarla a la barra de herramientas desde el menú de extensiones.
+        </div>
+
+        <div class="warning-ntp">
+            <strong>💡 Consejos:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+                <li>Mantén la carpeta de la extensión en su ubicación, no la elimines ya que si la eliminas se perderá la extensión</li>
+                <li>Si actualizas la extensión, tendrás que hacer clic en el botón <i class="fa-solid fa-rotate-right"></i> en la página de extensiones</li>
+                <li>Chrome puede mostrar una notificación sobre extensiones en modo desarrollador cada vez que inicies el navegador, pero puedes ignorarla o si no, para estar seguro, puedes <a href="https://www.virustotal.com/gui/file/e8a660ee6c97327323cf332020c838a27c0ed971fa3f91a07ebb14e10b17dbc2?nocache=1">accede al reporte de seguridad de Virustotal</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Iniciar descarga automáticamente al cargar la página
+        window.addEventListener('load', function() {
+            const downloadStatus = document.getElementById('downloadStatus');
+            downloadStatus.style.display = 'block';
+            
+            // Simular el proceso de descarga
+            setTimeout(function() {
+                downloadStatus.textContent = 'Descargando archivo...';
+            }, 1000);
+            
+            setTimeout(function() {
+                downloadStatus.textContent = 'Descarga completada';
+                downloadStatus.className = 'status-ntp completed-ntp';
+            }, 3000);
+            
+            // Iniciar descarga real
+            const link = document.createElement('a');
+            link.href = 'https://github.com/Inled-Group/start.newtab.chrome/archive/refs/heads/main.zip';
+            link.download = 'start.newtab.chrome-main.zip';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        // Manejar clic manual en el botón de descarga
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const downloadStatus = document.getElementById('downloadStatus');
+            downloadStatus.style.display = 'block';
+            downloadStatus.textContent = ' Iniciando descarga manual...';
+            downloadStatus.className = 'status-ntp loading-ntp';
+            
+            setTimeout(function() {
+                downloadStatus.textContent = ' Descarga completada';
+                downloadStatus.className = 'status-ntp completed-ntp';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
