@@ -127,6 +127,7 @@ dropdown17: [
     { text: "ABC", url: "https://www.abc.es/" },
     { text: "La Razón", url: "https://www.larazon.es/" },
     { text: "Libertad Digital", url: "https://www.libertaddigital.com/" },
+    { text: "El Debate", url: "https://www.eldebate.com/" }
 ],
 dropdown18: [
     { text: "TDT Channels (TV Online)", url: "https://play.tdtchannels.com/television/" },
