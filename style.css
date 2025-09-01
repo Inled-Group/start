@@ -122,6 +122,10 @@ body {
   color: var(--gray-800);
   min-height: 100vh;
   transition: all 0.3s ease;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  height: 100%;
 }
 
 .dark-theme body {
@@ -131,7 +135,6 @@ body {
 
 /* Header con glass effect */
 #sticky-nav {
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;

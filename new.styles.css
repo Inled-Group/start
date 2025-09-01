@@ -1,0 +1,517 @@
+
+/* Estado inicial de la página - todo centrado */
+body.initial-state {
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffffff 0%, #b1f79f 100%);
+  }
+  
+  /* Sticky nav centrado inicialmente - MÁS AMPLIO */
+  body.initial-state #sticky-nav {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    max-width: 1400px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 30px 40px;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Ocultar todo el contenido principal inicialmente */
+  body.initial-state main,
+  body.initial-state footer {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+  }
+  
+  /* Estilos para cuando se hace scroll - estado normal - TAMAÑO REDUCIDO */
+  body.scrolled #sticky-nav {
+    position: fixed;
+    top: 15px; /* Separado del borde superior */
+    left: 15px; /* Separado del borde izquierdo */
+    right: 15px; /* Separado del borde derecho */
+    transform: none; /* Elimina cualquier transformación que lo despegue */
+    /* width: auto; */ /* Ya no necesitamos 100% */
+    max-width: calc(100% - 30px); /* Asegura que no exceda el ancho con el padding */
+    max-height: 45px;
+    overflow: hidden;
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 5px 15px;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(0, 0, 0, 0.08); /* Usar border en lugar de border-bottom */
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+  }
+  body.scrolled #share-button {
+    width: auto;
+    max-height: 30px;
+    font-size: 15px;
+    top: 1px;
+  }
+  /* Mostrar contenido cuando se hace scroll */
+  body.scrolled main,
+  body.scrolled footer {
+    opacity: 1;
+    visibility: visible; /* Asegura que el contenido sea visible */
+    transform: translateY(0);
+    padding-top: 120px; /* Espacio para el nav fijo */
+  }
+  
+  /* Transición suave del fondo */
+  body.scrolled {
+    background: #f8f9fa;
+    overflow-y: auto;
+  }
+  
+  /* Estilos adicionales para el nav - TAMAÑOS ADAPTATIVOS */
+  #sticky-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    min-height: 80px;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Cuando está en scroll, reducir tamaños */
+  body.scrolled #sticky-nav .search-wrapper {
+    gap: 15px; /* Mantener el gap */
+    min-height: 40px; /* Mantener la altura mínima */
+  }
+  
+  /* Estilos específicos para el cuadro de búsqueda - ADAPTATIVOS */
+  .search-wrapper {
+    flex: 1; /* Permite que el search-wrapper ocupe el espacio disponible */
+    min-width: 400px;
+    max-width: 800px;
+    transition: all 0.6s ease;
+  }
+  
+  /* Cuadro de búsqueda reducido en scroll */
+  body.scrolled #sticky-nav .search-wrapper {
+    min-width: 250px; /* Reduce el ancho mínimo */
+    max-width: 400px; /* Reduce el ancho máximo */
+  
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+  
+    transition: all 0.3s ease;
+    height: 60px;
+  }
+  
+  /* Altura reducida en scroll */
+  body.scrolled #sticky-nav .search-container {
+    height: 35px;
+  }
+  
+  
+  
+  #search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0 20px;
+    font-size: 18px;
+    height: 100%;
+    min-width: 0;
+    transition: all 0.3s ease;
+  }
+  
+  /* Fuente más pequeña en scroll */
+  body.scrolled #sticky-nav #search-input {
+    font-size: 13px;
+  }
+  
+  /* Botones del search - SIN CAMBIOS DE COLOR, SOLO TAMAÑO */
+  #search-button {
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-right: 5px;
+  }
+  
+  /* Botón más pequeño en scroll */
+  body.scrolled #sticky-nav #search-button {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+  
+  #clear-button {
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+  }
+  
+  /* Botón más pequeño en scroll */
+  body.scrolled #sticky-nav #clear-button {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+    margin-left: 8px;
+  }
+  
+  .search-engine-selector {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+  
+  #current-engine-button {
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Botón más pequeño en scroll */
+  body.scrolled #sticky-nav #current-engine-button {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+  
+  /* Logo adaptativos - SIN CAMBIOS DE ESTILO */
+  .logo {
+    height: 60px;
+    width: auto;
+    transition: all 0.3s ease;
+  }
+  
+  /* Logo más pequeño en scroll */
+  body.scrolled #sticky-nav .logo {
+    height: 30px;
+  }
+  
+  /* Botones de navegación - SIN CAMBIOS DE COLOR/ESTILO, SOLO TAMAÑO */
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Gap más pequeño en scroll */
+  body.scrolled #sticky-nav .nav-actions {
+    gap: 10px;
+  }
+  
+  .nav-actions a,
+  .nav-actions button { /* Ajustado para que los botones sean más pequeños en el nav scrolleado */
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    text-align: center;
+  }
+  
+  /* Botones más pequeños en scroll */
+  body.scrolled #sticky-nav .nav-actions a,
+  body.scrolled #sticky-nav .nav-actions button {
+    padding: 5px 8px;
+    font-size: 12px;
+    min-width: 60px;
+    border-radius: 10px;
+  }
+  
+  /* Mantener el estilo original del botón home */
+  #myStart {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  /* Gap más pequeño en scroll */
+  body.scrolled #sticky-nav #myStart {
+    gap: 5px;
+  }
+  
+  /* Responsive para móviles - TAMAÑOS ADAPTATIVOS */
+  @media (max-width: 768px) {
+    body.initial-state #sticky-nav {
+      width: 98%;
+      padding: 25px 20px;
+      border-radius: 20px;
+    }
+    
+    body.scrolled #sticky-nav {
+      margin-left: 20px;
+      margin-right: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      max-width: calc(100% - 40px); /* Para que no se pegue a los lados */
+      top: 10px; /* Flotando un poco desde arriba */
+    -right: 10px;
+      min-height: 45px;
+    }
+  
+    body.scrolled main,
+    body.scrolled footer {
+      padding-top: 60px;
+    }
+    
+    #sticky-nav {
+      flex-direction: column;
+      gap: 20px;
+      min-height: 120px;
+    }
+    
+    body.scrolled #sticky-nav { /* Aplicar directamente al sticky-nav */
+      gap: 10px;
+      min-height: 40px;
+    }
+    
+    .search-wrapper {
+      min-width: 100%;
+      max-width: 100%;
+    }
+    
+    body.scrolled #sticky-nav .search-wrapper { /* Aplicar directamente al search-wrapper dentro del sticky-nav */
+      min-width: 100%;
+      max-width: 100%;
+    }
+    
+    .search-container {
+      height: 50px;
+    }
+    
+    body.scrolled #sticky-nav .search-container { /* Aplicar directamente al search-container dentro del sticky-nav */
+      height: 35px;
+    }
+    
+    #search-input {
+      font-size: 16px;
+      padding: 0 15px;
+    }
+    
+    body.scrolled #sticky-nav #search-input { /* Aplicar directamente al search-input dentro del sticky-nav */
+      font-size: 12px;
+      padding: 0 10px;
+    }
+    
+    #search-button {
+      width: 45px;
+      height: 45px;
+      font-size: 16px;
+    }
+    
+    body.scrolled #sticky-nav #search-button { /* Aplicar directamente al search-button dentro del sticky-nav */
+      width: 25px;
+      height: 25px;
+      font-size: 12px;
+    }
+    
+    body.scrolled #clear-button {
+      width: 25px;
+      height: 25px;
+      font-size: 10px; /* Mantener este tamaño */
+    }
+    
+    body.scrolled #current-engine-button {
+      width: 24px;
+      height: 24px;
+      font-size: 10px;
+    }
+    
+    .nav-actions {
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+    
+    body.scrolled #sticky-nav .nav-actions { /* Aplicar directamente al nav-actions dentro del sticky-nav */
+      gap: 5px;
+    }
+    
+    .nav-actions a,
+    .nav-actions button { /* Ajustado para que los botones sean más pequeños en el nav scrolleado */
+      min-width: 90px;
+      padding: 10px 14px;
+      font-size: 14px;
+    }
+    
+    body.scrolled #sticky-nav .nav-actions a,
+    body.scrolled #sticky-nav .nav-actions button { /* Aplicar directamente a los elementos dentro del sticky-nav */
+      min-width: 60px;
+      padding: 6px 10px;
+      font-size: 11px;
+    }
+    
+    .logo {
+      height: 50px;
+    }
+    
+    body.scrolled #sticky-nav .logo { /* Aplicar directamente al logo dentro del sticky-nav */
+      height: 25px;
+    }
+  }
+  
+  /* Animación de entrada para elementos del nav */
+  body.initial-state #sticky-nav > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInUp 0.8s ease forwards;
+  }
+  
+  body.initial-state #sticky-nav > *:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  
+  body.initial-state #sticky-nav > *:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  
+  body.initial-state #sticky-nav > *:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  
+  @keyframes slideInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Efecto de scroll suave */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Indicador de scroll */
+  body.initial-state::after {
+    content: "Desliza hacia abajo para continuar";
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  
+    font-size: 14px;
+    animation: pulse 2s infinite;
+  }
+  
+  /* Dropdown del selector de motores de búsqueda */
+  .search-engine-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1001;
+    min-width: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 5px;
+  }
+  
+  .search-engine-dropdown button {
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+  
+    text-align: left;
+    cursor: pointer;
+  
+    font-size: 14px;
+    transition: background 0.2s ease;
+  }
+  
+  .search-engine-dropdown button:hover {
+    background: #f8f9fa;
+  }
+  
+  .search-engine-dropdown button:last-child {
+    border-bottom: none;
+  }
+  
+  /* Botones de compartir más amplios */
+  .share-container {
+    position: relative;
+  }
+  
+  #share-button {
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    min-width: 140px;
+  }
+  
+  #share-button:hover {
+    transform: translateY(-2px); /* Mantener el efecto de hover */
+  }
+  
+  .share-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1001;
+    min-width: 180px;
+    margin-top: 5px;
+  }
+  
+  .share-options a {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+  
+  .share-options a:hover {
+    background: #f8f9fa;
+  }
+  
+  .share-options a:last-child {
+    border-bottom: none;
+  }
+  
+  /* Efectos adicionales para el estado centrado */
+  body.initial-state #sticky-nav {
+    animation: navGlow 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes navGlow {
+    0% {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+      box-shadow: 0 25px 50px rgba(0, 123, 255, 0.2);
+    }
+  }

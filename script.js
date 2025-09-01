@@ -454,3 +454,154 @@ window.cerrarIframe = function () {
   cont.style.display = 'none';
   cont.querySelectorAll('iframe').forEach(f => f.style.display = 'none');
 };
+// JavaScript para controlar el comportamiento del scroll y centrado del nav
+
+document.addEventListener('DOMContentLoaded', function() {
+  const body = document.body;
+  let scrollTimeout;
+  let isInitialState = true;
+  
+  // Establecer estado inicial
+  body.classList.add('initial-state');
+  
+  // Función para detectar scroll
+  function handleScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Si hacemos scroll desde la posición inicial
+    if (scrollTop > 50 && isInitialState) {
+      body.classList.remove('initial-state');
+      body.classList.add('scrolled');
+      isInitialState = false;
+    }
+    
+    // Si volvemos arriba del todo
+    if (scrollTop <= 10 && !isInitialState) {
+      body.classList.remove('scrolled');
+      body.classList.add('initial-state');
+      isInitialState = true;
+    }
+    
+    // Limpiar timeout anterior
+    clearTimeout(scrollTimeout);
+    
+    // Establecer nuevo timeout para detectar final del scroll
+    scrollTimeout = setTimeout(function() {
+      if (scrollTop <= 10) {
+        body.classList.remove('scrolled');
+        body.classList.add('initial-state');
+        isInitialState = true;
+      }
+    }, 150);
+  }
+  
+  // Agregar event listener para el scroll
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  
+  // Función para scroll suave al hacer clic en elementos del nav
+  function smoothScrollToContent() {
+    if (isInitialState) {
+      window.scrollTo({
+        top: window.innerHeight * 0.8,
+        behavior: 'smooth'
+      });
+    }
+  }
+  
+  // Agregar evento de clic al botón de búsqueda para activar scroll
+  const searchButton = document.getElementById('search-button');
+  const searchInput = document.getElementById('search-input');
+  
+  if (searchButton) {
+    searchButton.addEventListener('click', function(e) {
+      if (isInitialState && !searchInput.value.trim()) {
+        e.preventDefault();
+        smoothScrollToContent();
+      }
+    });
+  }
+  
+  // También al presionar Enter en el input de búsqueda
+  if (searchInput) {
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter' && isInitialState && !this.value.trim()) {
+        e.preventDefault();
+        smoothScrollToContent();
+      }
+    });
+  }
+  
+  // Agregar evento de scroll con la rueda del mouse
+  window.addEventListener('wheel', function(e) {
+    if (isInitialState && e.deltaY > 0) {
+      // Si estamos en estado inicial y hacemos scroll hacia abajo
+      smoothScrollToContent();
+    }
+  }, { passive: true });
+  
+  // Agregar evento de toque para dispositivos móviles
+  let touchStartY = 0;
+  
+  window.addEventListener('touchstart', function(e) {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  
+  window.addEventListener('touchmove', function(e) {
+    if (isInitialState) {
+      const touchY = e.touches[0].clientY;
+      const deltaY = touchStartY - touchY;
+      
+      if (deltaY > 30) {
+        // Swipe hacia arriba (scroll hacia abajo)
+        smoothScrollToContent();
+      }
+    }
+  }, { passive: true });
+  
+  // Manejar el redimensionamiento de ventana
+  window.addEventListener('resize', function() {
+    if (isInitialState) {
+      // Recalcular posición si es necesario
+      body.classList.remove('initial-state');
+      setTimeout(() => {
+        body.classList.add('initial-state');
+      }, 50);
+    }
+  });
+  
+  // Prevenir scroll inicial con teclas
+  document.addEventListener('keydown', function(e) {
+    if (isInitialState) {
+      const scrollKeys = [32, 33, 34, 35, 36, 37, 38, 39, 40];
+      if (scrollKeys.includes(e.keyCode)) {
+        if (e.keyCode === 40 || e.keyCode === 32 || e.keyCode === 34) {
+          // Flecha abajo, espacio o página abajo
+          e.preventDefault();
+          smoothScrollToContent();
+        } else if (e.keyCode === 38 || e.keyCode === 33 || e.keyCode === 36) {
+          // Flecha arriba, página arriba o inicio
+          e.preventDefault();
+        }
+      }
+    }
+  });
+});
+
+// Función adicional para volver al estado inicial desde cualquier parte
+function goToInitialState() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+// Agregar esta función al botón de inicio si existe
+document.addEventListener('DOMContentLoaded', function() {
+  const homeButton = document.getElementById('myStart');
+  if (homeButton) {
+    homeButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      goToInitialState();
+    });
+  }
+});

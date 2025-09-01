@@ -17,7 +17,7 @@
   <nav id="sticky-nav">
    <a href="https://inled.es"><img src="https://inled.es/wp-content/uploads/2024/11/inled-logo-full-300x169.png" alt="Inled Logo" class="logo"></a>
     <div class="nav-actions">
-      <a href="start.html" id="myStart">
+      <a href="start.html" id="myStart" class="homeBtn">
         <span class="material-symbols-rounded">home</span>
       </a>
       <div class="button-group"> 
@@ -483,4 +483,19 @@
         }
     });
 </script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.4
+  });
+
+  const targets = document.querySelectorAll('.dropdown-container, #news-section');
+  targets.forEach(el => observer.observe(el));
+</script>
+
   </html>
